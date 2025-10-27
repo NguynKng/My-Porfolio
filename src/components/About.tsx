@@ -39,7 +39,7 @@ export default function About() {
       <div className="py-20">
         <div className="flex flex-col lg:flex-row relative max-w-7xl mx-auto">
           <img
-            src="/avatar-2.jpg"
+            src="/avatar-1.jpg"
             className="w-full lg:w-1/2 h-[30rem] md:h-[40rem] lg:h-[50rem] object-cover"
             alt="About"
           />

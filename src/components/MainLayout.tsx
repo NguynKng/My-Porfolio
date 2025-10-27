@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import Intro from "./Intro";
 import About from "./About";
@@ -9,32 +9,48 @@ import RevealOnScroll from "./RevealOnScroll";
 
 export default function MainLayout() {
   const [activeSection, setActiveSection] = useState("");
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const sections = ["INTRO", "ABOUT", "WORKS", "CONTACT"];
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0,
-    };
+    const sections = document.querySelectorAll<HTMLElement>(
+      "#INTRO, #ABOUT, #WORKS, #CONTACT"
+    );
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        let mostVisible: HTMLElement | null = null;
+        let maxRatio = 0;
+
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            mostVisible = entry.target as HTMLElement;
+          }
+        });
+
+        if (mostVisible && mostVisible.id !== activeSection) {
+          setActiveSection(mostVisible.id);
         }
-      });
-    }, options);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: [0.3, 0.6, 0.9], // Trigger khi hiển thị 30%-90%
+      }
+    );
 
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
+    sections.forEach((section) => {
+      observerRef.current?.observe(section);
     });
 
-    return () => observer.disconnect();
-  }, []);
-
-  console.log("Active Section:", activeSection);
+    return () => {
+      observerRef.current?.disconnect();
+    };
+  }, [activeSection]);
 
   return (
     <div className="bg-[#181a1c]">

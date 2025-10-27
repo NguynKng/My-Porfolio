@@ -34,8 +34,8 @@ export default function Intro() {
         </div>
         <div className="text-white mt-10">
           <p className="lg:text-8xl text-4xl font-medium">
-            I am Luther, a digital designer & frontend developer based in
-            Somewhere.
+            {`I'm Nguyen Khang, a backend developer based in
+            Ho Chi Minh City.`}
           </p>
         </div>
       </div>
