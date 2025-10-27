@@ -22,7 +22,7 @@ export default function About() {
               ABOUT
             </h1>
             <p className="text-white mt-8 text-lg md:text-2xl font-medium">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                I'm Nguyen Khang, a passionate web developer based in Ho Chi Minh City. I specialize in building backend management systems, RESTful APIs, and managing databases. I thrive on solving complex problems and continuously enhancing my skills to deliver efficient and scalable solutions. Hope to collaborate and create impactful projects together!
             </p>
             <button className="w-full tracking-[0.3em] bg-[#282a2e] hover:bg-white hover:text-black text-yellow-500 text-center py-4 mt-8 cursor-pointer">
               DOWNLOAD CV
@@ -35,7 +35,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto mt-20">
         <h1 className="tracking-[0.3em] text-white">EXPERTISE</h1>
         <p className="mt-8 text-3xl md:text-5xl lg:text-6xl font-bold text-white font-[DM_Serif_Display]">
-          Visual Design, Branding Identity, UI Design, Product Design, Prototyping, Illustration
+          Web Development, App Mobile Development, Backend Management Systems, RESTful APIs, UI Design
         </p>
       </div>
 
