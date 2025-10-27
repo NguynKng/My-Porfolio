@@ -32,8 +32,8 @@ export default function MainLayout() {
           }
         });
 
-        if (mostVisible && mostVisible.id !== activeSection) {
-          setActiveSection(mostVisible.id);
+        if (mostVisible && (mostVisible as HTMLElement).id !== activeSection) {
+          setActiveSection((mostVisible as HTMLElement).id);
         }
       },
       {
