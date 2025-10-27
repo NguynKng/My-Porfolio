@@ -1,35 +1,9 @@
 export default function About() {
-  const experienceData = [
-    {
-      company: "Dropbox",
-      position: "Product Designer",
-      duration: "AUGUST 2019 - PRESENT",
-      description:
-        "Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.",
-    },
-    {
-      company: "Microsoft",
-      position: "Frontend Developer",
-      duration: "AUGUST 2016 - JULY 2019",
-      description:
-        "Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.",
-    }
-  ];
-
   const educationData = [
     {
-      company: "University of Life",
-      position: "Master in Graphic Design",
-      duration: "APRIL 2015",
-      description:
-        "Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.",
-    },
-    {
-      company: "School of Cool Designers",
-      position: "B.A. Degree in Graphic Design",
-      duration: "AUGUST 2012",
-      description:
-        "Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.",
+      company: "HUTECH University, Ho Chi Minh City",
+      position: "Software Engineering",
+      duration: "2022 - Present",
     }
   ];
 
@@ -67,22 +41,7 @@ export default function About() {
 
       {/* Experience & Education */}
       <div className="max-w-6xl mx-auto mt-20 py-20 flex flex-col lg:flex-row gap-16">
-        <div className="lg:w-1/2">
-          <h1 className="tracking-[0.3em] text-white px-6 lg:px-14">EXPERIENCE</h1>
-          <div className="mt-12 border-l-2 border-gray-700 relative space-y-16">
-            {experienceData.map((item, index) => (
-              <div key={index} className="relative px-6 lg:px-14 ">
-                <div className="absolute -left-1.5 top-0 w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <h1 className="text-white text-2xl md:text-3xl">{item.company}</h1>
-                <h2 className="text-gray-200 text-lg md:text-xl mt-1">{item.position}</h2>
-                <h2 className="tracking-[0.3em] text-gray-600 text-xs mt-1">{item.duration}</h2>
-                <p className="text-gray-500 mt-6 md:mt-10 max-w-2xl text-lg md:text-xl">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="lg:w-1/2">
+        <div className="w-full">
           <h1 className="tracking-[0.3em] text-white px-6 lg:px-14">EDUCATION</h1>
           <div className="mt-12 border-l-2 border-gray-700 relative space-y-16">
             {educationData.map((item, index) => (
@@ -91,7 +50,6 @@ export default function About() {
                 <h1 className="text-white text-2xl md:text-3xl">{item.company}</h1>
                 <h2 className="text-gray-200 text-lg md:text-xl mt-1">{item.position}</h2>
                 <h2 className="tracking-[0.3em] text-gray-600 text-xs mt-1">{item.duration}</h2>
-                <p className="text-gray-500 mt-6 md:mt-10 max-w-2xl text-lg md:text-xl">{item.description}</p>
               </div>
             ))}
           </div>
