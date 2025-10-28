@@ -22,7 +22,7 @@ export default function About() {
               ABOUT
             </h1>
             <p className="text-white mt-8 text-lg md:text-2xl font-medium">
-                I'm Nguyen Khang, a passionate web developer based in Ho Chi Minh City. I specialize in building backend management systems, RESTful APIs, and managing databases. I thrive on solving complex problems and continuously enhancing my skills to deliver efficient and scalable solutions. Hope to collaborate and create impactful projects together!
+                I'm Nguyen Khang, a passionate web developer based in Ho Chi Minh City with a deep drive to create meaningful and scalable digital experiences. I specialize in building robust backend systems, RESTful APIs, and managing complex databases. I’m fueled by the challenge of turning ideas into reality — constantly learning, improving, and pushing boundaries to deliver impactful and high-performance solutions. Let’s collaborate to build something extraordinary.
             </p>
             <button className="w-full tracking-[0.3em] bg-[#282a2e] hover:bg-white hover:text-black text-yellow-500 text-center py-4 mt-8 cursor-pointer">
               DOWNLOAD CV
