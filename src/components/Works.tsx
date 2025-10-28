@@ -43,7 +43,7 @@ export default function Works() {
       type: "Website",
       description:
         "Modern web app for browsing movies and TVshows, with search, trailers, and summaries powered by the IMDb API.",
-      title: "FlixZone",
+      title: "FlixZone - Movie Discovery",
       technologies: [
         "React",
         "Node.js",
@@ -70,7 +70,7 @@ export default function Works() {
       type: "Website / Mobile",
       description:
         "A full-stack web and mobile app based on core basic Facebook features. User can chat 1vs1, add friend,create/like/comment post, customize personal profile.",
-      title: "FriendSpace",
+      title: "FriendSpace - Social Network",
       technologies: [
         "React",
         "React Native",
@@ -100,7 +100,7 @@ export default function Works() {
       ],
 
       type: "Website / Mobile",
-      title: "GPTalk",
+      title: "GPTalk - AI Chatbot",
       description:
         "A Chat bot website and mobile app based on basic Chat-GPT features, using Gemini API to generate content.",
       technologies: [
@@ -132,7 +132,7 @@ export default function Works() {
       ],
 
       type: "Website",
-      title: "TechZon",
+      title: "TechZon- E-commerce Platform",
       backendLink: "https://github.com/NguynKng/EcommerceApp-backend",
       description:
         "Developed TechZon, a full-featured e-commerce web application allowing users to browse products, manage their cart and wishlist. Built an intuitive admin dashboard for managing inventory, users, and sales analytics. Focused on creating a responsive, seamless shopping experience using modern web technologies.",
@@ -165,7 +165,7 @@ export default function Works() {
       type: "Website / Mobile",
       description:
         "Developed a modern social networking platform that provides a friendly environment by using AI to detect and manage toxic content. Users can enjoy 1-on-1 video calls with real-time translation, group chats, play interactive quizzes, and stay updated with daily tech news. The platform also allows users to create posts, like, comment, and even open their own online shops to sell products. Includes a dedicated admin dashboard for system and content management.",
-      title: "BingBong (In progress)",
+      title: "BingBong - AI-Powered Social Network (In Progress)",
       technologies: [
         "React",
         "Node.js",
