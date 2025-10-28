@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function About() {
   const educationData = [
     {
@@ -24,9 +26,9 @@ export default function About() {
             <p className="text-white mt-8 text-lg md:text-2xl font-medium">
                 I'm Nguyen Khang, a passionate web developer based in Ho Chi Minh City with a deep drive to create meaningful and scalable digital experiences. I specialize in building robust backend systems, RESTful APIs, and managing complex databases. I’m fueled by the challenge of turning ideas into reality — constantly learning, improving, and pushing boundaries to deliver impactful and high-performance solutions. Let’s collaborate to build something extraordinary.
             </p>
-            <button className="w-full tracking-[0.3em] bg-[#282a2e] hover:bg-white hover:text-black text-yellow-500 text-center py-4 mt-8 cursor-pointer">
-              DOWNLOAD CV
-            </button>
+            <Link to="/cv/NguyenHuuNguyenKhang_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full tracking-[0.3em] bg-[#282a2e] hover:bg-white hover:text-black text-yellow-500 text-center py-4 mt-8 cursor-pointer">
+              VIEW MY CV
+            </Link>
           </div>
         </div>
       </div>
