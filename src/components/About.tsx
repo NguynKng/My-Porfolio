@@ -4,7 +4,7 @@ export default function About() {
   const educationData = [
     {
       company: "HUTECH University, Ho Chi Minh City",
-      position: "Software Engineering",
+      position: "INFORMATION TECHNOLOGY",
       duration: "2022 - Present",
     }
   ];
