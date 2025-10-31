@@ -191,7 +191,7 @@ export default function Works() {
   return (
     <div className="max-w-6xl mx-auto mt-10 py-20 border-b-[1px] border-gray-700 px-4">
       <h1 className="tracking-[0.3em] text-white">RECENT WORKS</h1>
-      <p className="mt-8 text-6xl font-bold text-white font-[DM_Serif_Display]">
+      <p className="mt-8 text-4xl lg:text-6xl font-bold text-white font-[DM_Serif_Display]">
         Here are some of my personal projects I have done lately. Feel free to
         check them out.
       </p>

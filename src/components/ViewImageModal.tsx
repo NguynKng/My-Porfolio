@@ -78,7 +78,7 @@ export default function ViewImageModal({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
-      <div className="relative lg:h-[90vh] lg:w-[60vw] w-[90vw] bg-white overflow-y-scroll hide-scrollbar rounded-lg shadow-lg">
+      <div className="relative h-[90vh] lg:w-[60vw] w-[90vw] bg-white overflow-y-scroll hide-scrollbar rounded-lg shadow-lg">
         {/* Main media area */}
         <div className="relative h-[60vh] w-full bg-black rounded-t-lg flex items-center justify-center">
           {active.type === "image" ? (
