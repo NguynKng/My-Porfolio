@@ -12,14 +12,14 @@ export default function About() {
   return (
     <div className="px-4 md:px-10">
       {/* Hero section */}
-      <div className="py-20">
-        <div className="flex flex-col lg:flex-row relative max-w-7xl mx-auto">
+      <div className="lg:py-20 py-10">
+        <div className="flex flex-col lg:flex-row relative max-w-7xl mx-auto gap-4">
           <img
             src="/avatar-1.jpg"
             className="w-full lg:w-1/2 h-[30rem] md:h-[40rem] lg:h-[50rem] object-cover"
             alt="About"
           />
-          <div className="bg-transparent p-8 lg:p-12 flex flex-col justify-center lg:absolute right-0 lg:top-1/2 lg:-translate-y-1/2 lg:-translate-x-[20%] w-full lg:w-[38rem]">
+          <div className="bg-transparent p-4 lg:p-12 flex flex-col justify-center lg:absolute right-0 lg:top-1/2 lg:-translate-y-1/2 lg:-translate-x-[20%] w-full lg:w-[38rem]">
             <h1 className="relative inline-flex items-center before:content-[''] before:block before:w-10 before:h-[2px] tracking-[0.3em] before:bg-gray-500 text-yellow-500 before:mr-3">
               ABOUT
             </h1>
@@ -34,7 +34,7 @@ export default function About() {
       </div>
 
       {/* Expertise */}
-      <div className="max-w-6xl mx-auto mt-20">
+      <div className="max-w-6xl mx-auto lg:mt-20 mt-10">
         <h1 className="tracking-[0.3em] text-white">EXPERTISE</h1>
         <p className="mt-8 text-3xl md:text-5xl lg:text-6xl font-bold text-white font-[DM_Serif_Display]">
           Web Development, App Mobile Development, Backend Management Systems, RESTful APIs, UI Design
@@ -42,7 +42,7 @@ export default function About() {
       </div>
 
       {/* Experience & Education */}
-      <div className="max-w-6xl mx-auto mt-20 py-20 flex flex-col lg:flex-row gap-16">
+      <div className="max-w-6xl mx-auto lg:mt-20 mt-10 lg:py-20 py-10 flex flex-col lg:flex-row gap-16">
         <div className="w-full">
           <h1 className="tracking-[0.3em] text-white px-6 lg:px-14">EDUCATION</h1>
           <div className="mt-12 border-l-2 border-gray-700 relative space-y-16">
