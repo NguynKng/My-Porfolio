@@ -31,7 +31,7 @@ export default function Contact() {
         <div className="lg:w-[30%] w-full space-y-4">
           <h1 className="text-white tracking-[0.3em]">REACT ME AT</h1>
           <h3 className="text-gray-600 text-2xl">nguynkhang2109@gmail.com</h3>
-          <h3 className="text-gray-600 text-2xl">+0934690473</h3>
+          <h3 className="text-gray-600 text-2xl">+84 934690473</h3>
         </div>
         <div className="lg:w-[35%] w-full space-y-4">
           <h1 className="text-white tracking-[0.3em]">SOCIAL</h1>
