@@ -160,12 +160,12 @@ export default function Works() {
         { type: "image", src: "/personal-project/project5-4.jfif" },
         { type: "image", src: "/personal-project/project5-5.jfif" },
         { type: "video", src: "/personal-project/project5-video.mp4" },
-      ],
+      ],    
 
       type: "Website / Mobile",
       description:
         "Developed a modern social networking platform that provides a friendly environment by using AI to detect and manage toxic content. Users can enjoy 1-on-1 video calls with real-time translation, group chats, play interactive quizzes, and stay updated with daily tech news. The platform also allows users to create posts, like, comment, and even open their own online shops to sell products. Includes a dedicated admin dashboard for system and content management.",
-      title: "BingBong - AI-Powered Social Network (In Progress)",
+      title: "BingBong - Advanced Social Network",
       technologies: [
         "React",
         "Node.js",
@@ -181,10 +181,11 @@ export default function Works() {
         "JWT",
         "YOLO",
         "Puppeteer",
-        "S3"
+        "Cloudinary"
       ],
       backendLink: "https://github.com/NguynKng/BingBongApp-backend",
       frontendLink: "https://github.com/NguynKng/BingBongApp-frontend",
+      nativeLink: "https://github.com/dattr09/BingBongApp"
     },
   ];
 

@@ -40,7 +40,7 @@ export default function Contact() {
           </h3>
           <div className="flex items-center gap-4">
             {socialMediaContact.map((item, index) => (
-              <Link
+              <Link 
                 key={index}
                 to={item.link}
                 target="_blank"
