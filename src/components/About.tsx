@@ -6,57 +6,56 @@ export default function About() {
       company: "HUTECH University, Ho Chi Minh City",
       position: "INFORMATION TECHNOLOGY",
       duration: "2022 - Present",
-    }
+    },
   ];
 
   return (
-    <div className="px-4 md:px-10">
-      {/* Hero section */}
-      <div className="lg:py-20 py-10">
-        <div className="flex flex-col lg:flex-row relative max-w-7xl mx-auto gap-4">
-          <img
-            src="/avatar-1.jpg"
-            className="w-full lg:w-1/2 h-[30rem] md:h-[40rem] lg:h-[50rem] object-cover"
-            alt="About"
-          />
-          <div className="bg-transparent p-4 lg:p-12 flex flex-col justify-center lg:absolute right-0 lg:top-1/2 lg:-translate-y-1/2 lg:-translate-x-[20%] w-full lg:w-[38rem]">
-            <h1 className="relative inline-flex items-center before:content-[''] before:block before:w-10 before:h-[2px] tracking-[0.3em] before:bg-gray-500 text-yellow-500 before:mr-3">
-              ABOUT
-            </h1>
-            <p className="text-white mt-8 text-lg md:text-2xl font-medium">
-                I'm Nguyen Khang, a passionate web developer based in Ho Chi Minh City with a deep drive to create meaningful and scalable digital experiences. I specialize in building robust backend systems, RESTful APIs, and managing complex databases. I’m fueled by the challenge of turning ideas into reality — constantly learning, improving, and pushing boundaries to deliver impactful and high-performance solutions. Let’s collaborate to build something extraordinary.
-            </p>
-            <Link to="/cv/NguyenHuuNguyenKhang_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-full tracking-[0.3em] bg-[#282a2e] hover:bg-white hover:text-black text-yellow-500 text-center py-4 mt-8 cursor-pointer">
-              VIEW MY CV
-            </Link>
-          </div>
+    <section className="section-shell">
+      <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_1.05fr]">
+        <img
+          src="/avatar-1.jpg"
+          className="h-[24rem] w-full rounded-[1.75rem] border border-slate-700/45 object-cover sm:h-[30rem] lg:h-full"
+          alt="About"
+        />
+
+        <div className="card-surface flex flex-col justify-center rounded-[1.75rem] p-7 sm:p-10">
+          <span className="section-kicker">ABOUT</span>
+          <p className="mt-7 text-base leading-relaxed text-slate-300 sm:text-lg lg:text-xl">
+            I am Nguyen Khang, a web developer based in Ho Chi Minh City with a strong focus on scalable backend systems and high-quality digital products. I enjoy turning complex ideas into practical, polished solutions that are easy to use and built to grow.
+          </p>
+          <Link
+            to="/cv/NguyenHuuNguyenKhang_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex w-fit items-center rounded-full border border-slate-500/40 bg-[#142034] px-6 py-3 text-xs tracking-[0.24em] text-[#f5c55d] transition hover:border-slate-300/60 hover:text-slate-100"
+          >
+            VIEW MY CV
+          </Link>
         </div>
       </div>
 
-      {/* Expertise */}
-      <div className="max-w-6xl mx-auto lg:mt-20 mt-10">
-        <h1 className="tracking-[0.3em] text-white">EXPERTISE</h1>
-        <p className="mt-8 text-3xl md:text-5xl lg:text-6xl font-bold text-white font-[DM_Serif_Display]">
-          Web Development, App Mobile Development, Backend Management Systems, RESTful APIs, UI Design
-        </p>
-      </div>
+      <div className="mt-14 grid gap-8 lg:grid-cols-[1.2fr_0.9fr] lg:items-start">
+        <div>
+          <h2 className="section-kicker">EXPERTISE</h2>
+          <p className="mt-7 max-w-4xl font-[Sora] text-3xl font-semibold leading-tight text-slate-100 sm:text-4xl lg:text-5xl">
+            Web Development, Mobile Applications, Backend Systems, RESTful APIs, and UI Design.
+          </p>
+        </div>
 
-      {/* Experience & Education */}
-      <div className="max-w-6xl mx-auto lg:mt-20 mt-10 lg:py-20 py-10 flex flex-col lg:flex-row gap-16">
-        <div className="w-full">
-          <h1 className="tracking-[0.3em] text-white px-6 lg:px-14">EDUCATION</h1>
-          <div className="mt-12 border-l-2 border-gray-700 relative space-y-16">
+        <div className="card-surface rounded-2xl p-6 sm:p-7">
+          <h2 className="section-kicker">EDUCATION</h2>
+          <div className="mt-7 space-y-6 border-l border-slate-600/50 pl-5">
             {educationData.map((item, index) => (
-              <div key={index} className="relative px-6 lg:px-14">
-                <div className="absolute top-0 -left-1.5 w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <h1 className="text-white text-2xl md:text-3xl">{item.company}</h1>
-                <h2 className="text-gray-200 text-lg md:text-xl mt-1">{item.position}</h2>
-                <h2 className="tracking-[0.3em] text-gray-600 text-xs mt-1">{item.duration}</h2>
+              <div key={index} className="relative">
+                <span className="absolute -left-[1.45rem] top-2 h-2.5 w-2.5 rounded-full bg-[#f5c55d]" />
+                <h3 className="text-lg font-medium text-slate-100">{item.company}</h3>
+                <p className="mt-1 text-sm tracking-[0.18em] text-slate-400">{item.position}</p>
+                <p className="mt-1 text-xs tracking-[0.2em] text-slate-500">{item.duration}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

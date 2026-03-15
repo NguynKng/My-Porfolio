@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export default function Contact() {
   const socialMediaContact = [
     {
@@ -20,40 +18,50 @@ export default function Contact() {
     },
   ];
   return (
-    <div className="max-w-6xl mx-auto lg:mt-10 mt-4 py-20 px-6">
-      <h1 className="tracking-[0.3em] text-white">GET IN TOUCH</h1>
-      <p className="mt-6 text-white lg:text-5xl text-3xl font-semibold">
+    <section className="section-shell">
+      <h1 className="section-kicker">GET IN TOUCH</h1>
+      <p className="mt-7 max-w-4xl font-[Sora] text-3xl font-semibold leading-tight text-slate-100 sm:text-4xl lg:text-5xl">
         I love to hear from you. Whether you have a question or just want to
         discuss about technology, just drop me a message in my social media or
         email me directly.
       </p>
-      <div className="mt-16 flex lg:flex-row flex-col justify-between gap-8">
-        <div className="lg:w-[30%] w-full space-y-4">
-          <h1 className="text-white tracking-[0.3em]">REACT ME AT</h1>
-          <h3 className="text-gray-600 text-2xl">nguynkhang2109@gmail.com</h3>
-          <h3 className="text-gray-600 text-2xl">+84 934690473</h3>
+
+      <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="card-surface rounded-2xl p-6">
+          <h2 className="section-kicker">REACH ME AT</h2>
+          <p className="mt-5 text-lg text-slate-300">nguynkhang2109@gmail.com</p>
+          <p className="mt-2 text-lg text-slate-400">+84 934690473</p>
         </div>
-        <div className="lg:w-[35%] w-full space-y-4">
-          <h1 className="text-white tracking-[0.3em]">SOCIAL</h1>
-          <h3 className="text-gray-600 text-2xl leading-10">
+
+        <div className="card-surface rounded-2xl p-6">
+          <h2 className="section-kicker">SOCIAL</h2>
+          <p className="mt-5 text-lg leading-8 text-slate-400">
             Facebook, Instagram, Github, LinkedIn
-          </h3>
-          <div className="flex items-center gap-4">
+          </p>
+          <div className="mt-4 flex items-center gap-3">
             {socialMediaContact.map((item, index) => (
-              <Link 
+              <a
                 key={index}
-                to={item.link}
+                href={item.link}
                 target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-slate-600/50 bg-slate-900/60 p-2 transition hover:-translate-y-1 hover:border-slate-300/70"
               >
-                <img src={item.icon} alt={item.link} className="w-6 h-6" />
-              </Link>
+                <img src={item.icon} alt={item.link} className="h-5 w-5" />
+              </a>
             ))}
           </div>
         </div>
-        <div className="lg:w-[35%] w-full h-20 flex items-center justify-center bg-[#282a2e] hover:bg-white hover:text-black text-yellow-500 cursor-pointer py-2 px-4">
-          <h1 className="tracking-[0.3em]">SAY HELLO.</h1>
+
+        <a
+          href="mailto:nguynkhang2109@gmail.com"
+          className="card-surface flex min-h-40 items-center justify-center rounded-2xl p-6 text-center"
+        >
+          <span className="rounded-full border border-slate-500/50 bg-[#142034] px-6 py-3 text-xs tracking-[0.24em] text-[#f5c55d] transition hover:border-slate-300/65 hover:text-slate-100">
+            SAY HELLO.
+          </span>
+        </a>
         </div>
-      </div>
-    </div>
+    </section>
   );
 }

@@ -1,14 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
-
-#root {
-    font-family: "Public Sans", sans-serif;
+.site-shell {
+  background:
+    linear-gradient(180deg, rgba(15, 22, 33, 0.65) 0%, rgba(9, 13, 21, 0.92) 14%, rgba(7, 11, 18, 1) 28%),
+    repeating-linear-gradient(
+      to right,
+      rgba(148, 163, 184, 0.02) 0,
+      rgba(148, 163, 184, 0.02) 1px,
+      transparent 1px,
+      transparent 88px
+    );
 }
 
-/* in your styles.css / global.css */
+.section-shell {
+  width: min(1120px, 100% - 2rem);
+  margin-inline: auto;
+  padding-block: clamp(3rem, 9vw, 6rem);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: #a6b8d2;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 2.2rem;
+  height: 1px;
+  margin-right: 0.7rem;
+  background: rgba(148, 163, 184, 0.42);
+}
+
+.card-surface {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: linear-gradient(170deg, rgba(15, 22, 33, 0.9), rgba(12, 18, 28, 0.82));
+  box-shadow: 0 12px 35px rgba(2, 6, 15, 0.35);
+}
+
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

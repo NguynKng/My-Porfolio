@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import RevealOnScroll from "./RevealOnScroll";
 
 export default function MainLayout() {
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("INTRO");
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -26,20 +26,21 @@ export default function MainLayout() {
         let maxRatio = 0;
 
         entries.forEach((entry) => {
-          if (entry.intersectionRatio > maxRatio) {
+          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
             maxRatio = entry.intersectionRatio;
             mostVisible = entry.target as HTMLElement;
           }
         });
 
-        if (mostVisible && (mostVisible as HTMLElement).id !== activeSection) {
-          setActiveSection((mostVisible as HTMLElement).id);
+        if (mostVisible) {
+          const nextId = (mostVisible as HTMLElement).id;
+          setActiveSection((prev) => (prev !== nextId ? nextId : prev));
         }
       },
       {
         root: null,
-        rootMargin: "0px",
-        threshold: [0.3, 0.6, 0.9], // Trigger khi hiển thị 30%-90%
+        rootMargin: "-15% 0px -40% 0px",
+        threshold: [0.35, 0.6, 0.8],
       }
     );
 
@@ -50,27 +51,29 @@ export default function MainLayout() {
     return () => {
       observerRef.current?.disconnect();
     };
-  }, [activeSection]);
+  }, []);
 
   return (
-    <div className="bg-[#181a1c]">
+    <div className="site-shell min-h-screen">
       <Header activeSection={activeSection} />
 
-      <RevealOnScroll id="INTRO">
-        <Intro />
-      </RevealOnScroll>
+      <main className="pt-18 lg:pt-22">
+        <RevealOnScroll id="INTRO">
+          <Intro />
+        </RevealOnScroll>
 
-      <RevealOnScroll id="ABOUT">
-        <About />
-      </RevealOnScroll>
+        <RevealOnScroll id="ABOUT">
+          <About />
+        </RevealOnScroll>
 
-      <RevealOnScroll id="WORKS">
-        <Works />
-      </RevealOnScroll>
+        <RevealOnScroll id="WORKS">
+          <Works />
+        </RevealOnScroll>
 
-      <RevealOnScroll id="CONTACT">
-        <Contact />
-      </RevealOnScroll>
+        <RevealOnScroll id="CONTACT">
+          <Contact />
+        </RevealOnScroll>
+      </main>
 
       <Footer />
     </div>

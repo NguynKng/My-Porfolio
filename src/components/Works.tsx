@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import ViewImageModal from "./ViewImageModal";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type Project = {
   projectName: string;
@@ -190,38 +191,46 @@ export default function Works() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto lg:mt-10 mt-4 lg:py-20 py-10 border-b-[1px] border-gray-700 px-4">
-      <h1 className="tracking-[0.3em] text-white">RECENT WORKS</h1>
-      <p className="mt-8 text-4xl lg:text-6xl font-bold text-white font-[DM_Serif_Display]">
-        Here are some of my personal projects I have done lately. Feel free to
-        check them out.
+    <section className="section-shell border-y border-slate-700/45">
+      <h1 className="section-kicker">RECENT WORKS</h1>
+      <p className="mt-7 max-w-4xl font-[Sora] text-3xl font-semibold leading-tight text-slate-100 sm:text-4xl lg:text-5xl">
+        Selected personal projects focused on real-world products, scalability, and polished user experience.
       </p>
-      <div className="grid lg:grid-cols-2 grid-cols-1 lg:mt-10 mt-4 lg:py-20 py-10 gap-12">
+
+      <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
         {projectData.map((item, index) => (
-          <div
+          <motion.button
             key={index}
-            className="flex gap-8 group cursor-pointer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.45, delay: index * 0.08 }}
+            className="card-surface group flex w-full cursor-pointer gap-4 rounded-2xl p-4 text-left transition duration-300 hover:-translate-y-1 hover:border-slate-400/45 lg:gap-5 lg:p-5"
             onClick={() => handleProjectClick(item)}
           >
             <img
               src={item.imageUrl}
-              className="w-36 h-40 object-cover group-hover:opacity-50"
+              alt={item.projectName}
+              className="h-26 w-26 rounded-xl border border-slate-700/45 object-cover transition duration-300 group-hover:scale-[1.03] sm:h-28 sm:w-28"
             />
-            <div className="border-t-[1px] border-gray-700 py-4 w-full relative">
-              <h1 className="text-gray-500 mt-2">{item.type}</h1>
-              <h2 className="text-white lg:text-3xl text-xl group-hover:text-yellow-500">
+
+            <div className="relative flex-1 border-t border-slate-600/35 pt-3">
+              <span className="text-[11px] tracking-[0.2em] text-slate-400">{item.type}</span>
+              <h2 className="mt-2 pr-7 text-xl font-medium text-slate-100 transition-colors duration-300 group-hover:text-[#f5c55d] lg:text-2xl">
                 {item.title}
               </h2>
-              <ArrowUpRight className="absolute top-4 right-0 text-white size-5" />
+              <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-400">{item.description}</p>
+              <ArrowUpRight className="absolute right-0 top-3 size-5 text-slate-200 transition duration-300 group-hover:text-[#f5c55d]" />
             </div>
-          </div>
+          </motion.button>
         ))}
       </div>
+
       <ViewImageModal
         isOpen={isModalOpen}
         project={selectedProject}
         onClose={() => setIsModalOpen(false)}
       />
-    </div>
+    </section>
   );
 }

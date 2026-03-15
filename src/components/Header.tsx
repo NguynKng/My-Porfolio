@@ -18,56 +18,65 @@ export default function Header({ activeSection }: { activeSection: string }) {
   };
 
   return (
-    <header className="fixed top-0 lg:left-[4rem] lg:w-[88rem] w-full z-50 bg-[#181a1c] border-b-[0.5px] border-gray-700 lg:border-x-[0.5px]">
-      <div className="flex items-center justify-between h-16">
-        {/* Logo */}
-        <div
-          className="flex items-center text-white hover:text-yellow-500 font-bold tracking-[0.3em] cursor-pointer text-[10px] w-1/4 h-full pl-4"
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070b12]/85 backdrop-blur-xl">
+      <div className="mx-auto flex h-18 w-full max-w-[1120px] items-center justify-between px-4 sm:px-6">
+        <button
+          className="font-semibold tracking-[0.28em] text-[11px] text-slate-100 transition-colors duration-300 hover:text-[#f5c55d]"
           onClick={() => handleNavClick("INTRO")}
         >
           NGUYNKNG.
-        </div>
+        </button>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex h-full w-full">
-          {headerTab.map((tab, index) => (
-            <div
-              key={index}
+        <nav className="hidden items-center gap-1 rounded-full border border-slate-500/30 bg-black/25 p-1 md:flex">
+          {headerTab.map((tab) => (
+            <button
+              key={tab.name}
               onClick={() => handleNavClick(tab.name)}
-              className={`flex items-center px-4 border-l-[0.5px] border-gray-600 text-[10px] tracking-[0.3em] text-white hover:text-yellow-500 transition-all duration-300 cursor-pointer h-full w-1/4
-                ${tab.name === activeSection ? "bg-[#282a2e] text-yellow-500" : ""}
+              className={`rounded-full px-4 py-2 text-[10px] font-medium tracking-[0.24em] transition-all duration-300 cursor-pointer
+                ${
+                  tab.name === activeSection
+                    ? "bg-[#162338] text-[#f5c55d]"
+                    : "text-slate-300 hover:bg-[#122038] hover:text-slate-100"
+                }
               `}
             >
               {tab.name}
-            </div>
+            </button>
           ))}
         </nav>
 
-        {/* Mobile Hamburger */}
         <button
-          className="lg:hidden text-white pr-4"
+          className="rounded-lg border border-slate-600/50 p-2 text-slate-100 transition hover:border-slate-400 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation"
         >
-          {isOpen ? <X /> : <AlignJustify />}
+          {isOpen ? <X size={18} /> : <AlignJustify size={18} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden absolute bg-[#181a1c] flex flex-col justify-center z-40 w-full py-8">
-          {headerTab.map((tab, index) => (
-            <div
-              key={index}
+      <div
+        className={`mx-auto w-full max-w-[1120px] overflow-hidden px-4 transition-all duration-300 md:hidden sm:px-6
+          ${isOpen ? "max-h-80 pb-4 opacity-100" : "max-h-0 pb-0 opacity-0"}
+        `}
+      >
+        <div className="card-surface rounded-2xl p-2">
+          {headerTab.map((tab) => (
+            <button
+              key={tab.name}
               onClick={() => handleNavClick(tab.name)}
-              className={`text-white text-base tracking-[0.3em] hover:text-yellow-500 cursor-pointer py-2 px-4
-                ${tab.name === activeSection ? "text-yellow-500" : ""}
+              className={`w-full rounded-xl px-4 py-3 text-left text-xs tracking-[0.24em] transition-colors cursor-pointer
+                ${
+                  tab.name === activeSection
+                    ? "bg-[#162338] text-[#f5c55d]"
+                    : "text-slate-300 hover:bg-[#122038]"
+                }
               `}
             >
               {tab.name}
-            </div>
+            </button>
           ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }

@@ -7,6 +7,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 
 type Project = {
@@ -46,27 +47,64 @@ export default function ViewImageModal({
   );
 
   useEffect(() => {
+    if (!isOpen) return;
+
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevBodyPaddingRight = document.body.style.paddingRight;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = prevBodyOverflow;
+      document.body.style.paddingRight = prevBodyPaddingRight;
+      document.documentElement.style.overflow = prevHtmlOverflow;
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     setCurrentIndex(0);
   }, [project, isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", onEsc);
+    return () => window.removeEventListener("keydown", onEsc);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
+  if (typeof document === "undefined") return null;
+
   if (!media.length) {
-    // Không có media -> có thể hiển thị fallback hoặc return null
-    return (
-      <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
-        <div className="relative lg:h-[70vh] lg:w-[60vw] w-[90vw] bg-white rounded-lg shadow-lg flex items-center justify-center">
-          <p className="text-gray-600 p-6 text-center">
+    return createPortal(
+      <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#02060dcc] p-3 backdrop-blur-sm sm:p-5">
+        <div className="card-surface relative flex h-[90vh] w-full max-w-5xl items-center justify-center rounded-3xl p-10">
+          <p className="text-center text-slate-300">
             No media available for this project.
           </p>
           <button
             onClick={onClose}
-            className="absolute cursor-pointer top-3 right-3 text-white bg-red-500 rounded-full p-2 hover:bg-red-600 transition"
+            className="absolute right-4 top-4 z-20 cursor-pointer rounded-full border border-slate-500/60 bg-slate-950/95 p-2.5 text-slate-100 transition hover:border-slate-300"
             aria-label="Close modal"
           >
             <X className="size-4" />
           </button>
         </div>
-      </div>
+      </div>,
+      document.body
     );
   }
 
@@ -76,132 +114,123 @@ export default function ViewImageModal({
 
   const active = media[currentIndex];
 
-  return (
-    <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
-      <div className="relative h-[90vh] lg:w-[60vw] w-[90vw] bg-white overflow-y-scroll hide-scrollbar rounded-lg shadow-lg">
-        {/* Main media area */}
-        <div className="relative h-[60vh] w-full bg-black rounded-t-lg flex items-center justify-center">
-          {active.type === "image" ? (
-            <img
-              src={active.src}
-              alt={`${project.title} - ${currentIndex + 1}/${media.length}`}
-              className="h-full w-full object-contain"
-              draggable={false}
-            />
-          ) : (
-            <video
-              src={active.src}
-              controls
-              playsInline
-              className="max-h-full max-w-full rounded-md"
-              // Tùy chọn: autoPlay muted nếu muốn tự chạy
-              // autoPlay
-              // muted
-            />
-          )}
-
-          {/* Prev / Next controls */}
-          {media.length > 1 && (
-            <>
-              <button
-                onClick={goPrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer bg-black/50 hover:bg-black/70 p-2 rounded-full text-white transition"
-                aria-label="Previous"
-              >
-                <ChevronLeft className="size-5" />
-              </button>
-              <button
-                onClick={goNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer bg-black/50 hover:bg-black/70 p-2 rounded-full text-white transition"
-                aria-label="Next"
-              >
-                <ChevronRight className="size-5" />
-              </button>
-
-              {/* Counter badge */}
-              <div className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2 py-1 rounded">
-                {currentIndex + 1} / {media.length}
-              </div>
-            </>
-          )}
-        </div>
-
-        {/* Content */}
-        <div className="w-full p-6 text-black space-y-4">
-          {/* Title */}
-          <h1 className="text-2xl font-bold">{project.title}</h1>
-
-          {/* Description */}
-          <p className="text-gray-600 text-lg">{project.description}</p>
-
-          {/* Type */}
-          <div className="flex items-center gap-2 text-gray-500">
-            <Mouse size={18} />
-            <span className="text-sm">{project.type}</span>
-          </div>
-
-          {/* Technologies */}
-          <div className="mt-1">
-            <h2 className="font-semibold text-gray-700 mb-2">Technologies</h2>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, idx) => (
-                <span
-                  key={idx}
-                  className="px-4 py-2 bg-gradient-to-r cursor-pointer from-blue-500 to-indigo-500 text-white text-base font-medium rounded-full shadow-md hover:scale-105 transition"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Repo Links */}
-          <div className="flex flex-wrap items-center gap-3 mt-2">
-            {project.frontendLink && (
-              <Link
-                to={project.frontendLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg shadow hover:bg-gray-700 transition"
-              >
-                <Github size={18} />
-                Frontend
-              </Link>
-            )}
-            {project.backendLink && (
-              <Link
-                to={project.backendLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg shadow hover:bg-gray-700 transition"
-              >
-                <Github size={18} />
-                Backend
-              </Link>
-            )}
-            {project.nativeLink && (
-              <Link
-                to={project.nativeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg shadow hover:bg-gray-700 transition"
-              >
-                <Smartphone size={18} />
-                Mobile
-              </Link>
-            )}
-          </div>
-        </div>
-
-        {/* Close button */}
+  return createPortal(
+    <div className="fixed inset-0 z-9999 bg-[#02060dcc] p-2 backdrop-blur-sm sm:p-4">
+      <div className="card-surface relative mx-auto flex h-[94vh] w-full max-w-7xl flex-col overflow-hidden rounded-3xl">
         <button
           onClick={onClose}
-          className="fixed cursor-pointer top-3 right-3 text-white bg-red-500 rounded-full p-2 hover:bg-red-600 transition"
+          className="absolute right-3 top-3 z-30 cursor-pointer rounded-full border border-slate-500/60 bg-slate-950/95 p-2.5 text-slate-100 transition hover:border-slate-300 sm:right-4 sm:top-4"
           aria-label="Close modal"
         >
           <X className="size-4" />
         </button>
+
+        <div className="hide-scrollbar flex-1 overflow-y-auto overscroll-contain">
+          <div className="relative flex h-[72vh] min-h-68 w-full items-center justify-center bg-black">
+            {active.type === "image" ? (
+              <img
+                src={active.src}
+                alt={`${project.title} - ${currentIndex + 1}/${media.length}`}
+                className="h-full w-full object-contain"
+                draggable={false}
+              />
+            ) : (
+              <video
+                src={active.src}
+                controls
+                playsInline
+                className="max-h-full max-w-full rounded-md"
+              />
+            )}
+
+            {media.length > 1 && (
+              <>
+                <button
+                  onClick={goPrev}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer rounded-full border border-slate-400/40 bg-black/55 p-2 text-white transition hover:border-slate-200/65"
+                  aria-label="Previous"
+                >
+                  <ChevronLeft className="size-5" />
+                </button>
+                <button
+                  onClick={goNext}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer rounded-full border border-slate-400/40 bg-black/55 p-2 text-white transition hover:border-slate-200/65"
+                  aria-label="Next"
+                >
+                  <ChevronRight className="size-5" />
+                </button>
+
+                <div className="absolute bottom-3 right-3 rounded bg-black/60 px-2 py-1 text-xs text-white">
+                  {currentIndex + 1} / {media.length}
+                </div>
+              </>
+            )}
+          </div>
+
+          <div className="border-t border-slate-700/45 bg-[#0b121d] px-5 py-5 sm:px-8 sm:py-7">
+            <h1 className="font-[Sora] text-base font-semibold text-slate-100 sm:text-lg">
+              {project.title}
+            </h1>
+            <div className="mt-1 flex items-center gap-2 text-slate-400">
+              <Mouse size={16} />
+              <span className="text-xs tracking-[0.14em]">{project.type}</span>
+            </div>
+
+            <p className="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">{project.description}</p>
+
+            <div className="mt-5">
+              <h2 className="mb-2 text-sm tracking-[0.16em] text-slate-300">TECHNOLOGIES</h2>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="cursor-default rounded-full border border-slate-600/55 bg-[#122038] px-3 py-1.5 text-xs tracking-[0.08em] text-slate-100"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              {project.frontendLink && (
+                <Link
+                  to={project.frontendLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70"
+                >
+                  <Github size={18} />
+                  Frontend
+                </Link>
+              )}
+              {project.backendLink && (
+                <Link
+                  to={project.backendLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70"
+                >
+                  <Github size={18} />
+                  Backend
+                </Link>
+              )}
+              {project.nativeLink && (
+                <Link
+                  to={project.nativeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70"
+                >
+                  <Smartphone size={18} />
+                  Mobile
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

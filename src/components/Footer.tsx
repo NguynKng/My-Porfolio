@@ -1,14 +1,14 @@
 export default function Footer(){
     return (
-        <div className="border-t-[1px] border-gray-700 h-40 px-4">
-            <div className="max-w-6xl mx-auto h-full flex flex-wrap items-center justify-between">
-                <div className="text-gray-500 text-xs tracking-[0.3em]">
+        <footer className="border-t border-slate-700/45">
+            <div className="mx-auto flex min-h-28 w-full max-w-[1120px] flex-wrap items-center justify-between gap-3 px-4 py-6 sm:px-6">
+                <div className="text-[11px] tracking-[0.22em] text-slate-500">
                     © 2025 NGUYNKNG. All rights reserved.
                 </div>
-                <div className="text-gray-500 text-xs tracking-[0.3em]">
+                <div className="text-[11px] tracking-[0.22em] text-slate-500">
                     Made with ❤️ by NGUYNKNG.
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
