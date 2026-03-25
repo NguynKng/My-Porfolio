@@ -24,10 +24,12 @@ export default function Works() {
   const [selectedProject, setSelectedProject] = useState<Project>(
     {} as Project
   );
+
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
+
   const projectData: Project[] = [
     {
       projectName: "FlixZone",
@@ -196,37 +198,56 @@ export default function Works() {
   return (
     <section className="section-shell border-y border-slate-700/45">
       <h1 className="section-kicker">RECENT WORKS</h1>
-      <p className="mt-7 max-w-4xl font-[Sora] text-3xl font-semibold leading-tight text-slate-100 sm:text-4xl lg:text-5xl">
+      <p className="mt-7 max-w-4xl font-[Sora] text-4xl font-semibold leading-tight text-slate-100 sm:text-5xl lg:text-6xl">
         Selected personal projects focused on real-world products, scalability, and polished user experience.
       </p>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
-        {projectData.map((item, index) => (
-          <motion.button
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.45, delay: index * 0.08 }}
-            className="card-surface group flex w-full cursor-pointer gap-4 rounded-2xl p-4 text-left transition duration-300 hover:-translate-y-1 hover:border-slate-400/45 lg:gap-5 lg:p-5"
-            onClick={() => handleProjectClick(item)}
-          >
-            <img
-              src={item.imageUrl}
-              alt={item.projectName}
-              className="h-26 w-26 rounded-xl border border-slate-700/45 object-cover transition duration-300 group-hover:scale-[1.03] sm:h-28 sm:w-28"
-            />
+      <div className="mt-10 flex flex-wrap justify-center gap-6">
+        {projectData.map((item, index) => {
+          const previewMedia = item.detailMedia.find((media) => media.type === "image");
+          const previewSrc = previewMedia?.src || item.imageUrl;
+          const isFeatured = index === 0;
 
-            <div className="relative flex-1 border-t border-slate-600/35 pt-3">
-              <span className="text-[11px] tracking-[0.2em] text-slate-400">{item.type}</span>
-              <h2 className="mt-2 pr-7 text-xl font-medium text-slate-100 transition-colors duration-300 group-hover:text-[#f5c55d] lg:text-2xl">
-                {item.title}
-              </h2>
-              <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-400">{item.description}</p>
-              <ArrowUpRight className="absolute right-0 top-3 size-5 text-slate-200 transition duration-300 group-hover:text-[#f5c55d]" />
-            </div>
-          </motion.button>
-        ))}
+          return (
+            <motion.button
+              key={item.projectName}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.35, delay: index * 0.06, ease: "easeOut" }}
+              className="card-surface group flex w-full max-w-3xl cursor-pointer flex-col overflow-hidden rounded-2xl text-left md:w-[calc(50%-0.75rem)] md:max-w-none xl:w-[calc((100%-3rem)/3)]"
+              onClick={() => handleProjectClick(item)}
+            >
+              <div className="relative aspect-16/10 w-full overflow-hidden border-b border-slate-700/45 bg-slate-900/60">
+                <img
+                  src={previewSrc}
+                  alt={item.projectName}
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = item.imageUrl;
+                  }}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]"
+                />
+                {isFeatured && (
+                  <span className="absolute left-4 top-4 rounded-full border border-amber-300/45 bg-[#0d141f]/75 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-amber-200">
+                    FEATURED
+                  </span>
+                )}
+              </div>
+
+              <div className="relative flex flex-1 flex-col p-5 sm:p-6">
+                <span className="text-xs tracking-[0.18em] text-slate-400">{item.type}</span>
+                <h2 className="mt-2 pr-7 text-lg font-medium text-slate-100 transition-colors duration-300 group-hover:text-[#f5c55d] sm:text-xl">
+                  {item.title}
+                </h2>
+                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-300">
+                  {item.description}
+                </p>
+                <ArrowUpRight className="absolute right-5 top-5 size-5 text-slate-200 transition duration-300 group-hover:text-[#f5c55d]" />
+              </div>
+            </motion.button>
+          );
+        })}
       </div>
 
       <ViewImageModal

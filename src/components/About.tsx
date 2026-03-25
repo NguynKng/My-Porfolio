@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Award, BriefcaseBusiness } from "lucide-react";
 
 export default function About() {
   const educationData = [
@@ -7,10 +8,15 @@ export default function About() {
       position: "INFORMATION TECHNOLOGY",
       duration: "2022 - Present",
     },
+  ];
+
+  const experienceData = [
     {
-      company: "IIG Vietnam",
-      position: "TOEIC CERTIFICATION - SCORE: 820",
-      duration: "Achieved",
+      company: "VNA Group",
+      position: "Software Developer Intern",
+      duration: "12/2025 - 02/2026",
+      description:
+        "Contributed to internal web features, supported API integration tasks, and collaborated with the team to improve UI quality.",
     },
   ];
 
@@ -19,7 +25,7 @@ export default function About() {
       <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_1.05fr]">
         <img
           src="/avatar-1.jpg"
-          className="h-[24rem] w-full rounded-[1.75rem] border border-slate-700/45 object-cover sm:h-[30rem] lg:h-full"
+          className="h-96 w-full rounded-[1.75rem] border border-slate-700/45 object-cover sm:h-120 lg:h-full"
           alt="About"
         />
 
@@ -39,16 +45,54 @@ export default function About() {
         </div>
       </div>
 
-      <div className="mt-14 grid gap-8 lg:grid-cols-[1.2fr_0.9fr] lg:items-start">
-        <div>
+      <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        <div className="card-surface h-full rounded-2xl p-6 sm:p-7">
           <h2 className="section-kicker">EXPERTISE</h2>
-          <p className="mt-7 max-w-4xl font-[Sora] text-3xl font-semibold leading-tight text-slate-100 sm:text-4xl lg:text-5xl">
+          <p className="mt-6 max-w-4xl font-[Sora] text-2xl font-semibold leading-tight text-slate-100 sm:text-3xl lg:text-4xl">
             Web Development, Mobile Applications, Backend Systems, RESTful APIs, and UI Design.
           </p>
         </div>
 
-        <div className="card-surface rounded-2xl p-6 sm:p-7">
-          <h2 className="section-kicker">EDUCATION & CERTIFICATION</h2>
+        <div className="card-surface h-full rounded-2xl p-6 sm:p-7">
+          <h2 className="section-kicker">CERTIFICATION</h2>
+          <div className="mt-6 rounded-2xl border border-[#f5c55d66] bg-linear-to-r from-[#1d2533] to-[#1a2942] p-4 sm:p-5">
+            <div className="flex items-start gap-4">
+              <div className="rounded-xl border border-[#f5c55d80] bg-[#f5c55d1f] p-2.5 text-[#f5c55d]">
+                <Award className="size-5" />
+              </div>
+              <div>
+                <p className="text-[11px] tracking-[0.2em] text-slate-300">ENGLISH CERTIFICATION</p>
+                <h3 className="mt-2 font-[Sora] text-2xl font-semibold text-[#f5c55d]">TOEIC 820</h3>
+                <p className="mt-1 text-sm text-slate-300">Issued by IIG Vietnam</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="card-surface h-full rounded-2xl p-6 sm:p-7">
+          <h2 className="section-kicker">EXPERIENCE</h2>
+          <div className="mt-7 space-y-6 border-l border-slate-600/50 pl-5">
+            {experienceData.map((item, index) => (
+              <div key={index} className="relative">
+                <span className="absolute -left-[1.45rem] top-2 h-2.5 w-2.5 rounded-full bg-[#f5c55d]" />
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 rounded-lg border border-[#f5c55d66] bg-[#f5c55d14] p-1.5 text-[#f5c55d]">
+                    <BriefcaseBusiness className="size-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-medium text-slate-100">{item.company}</h3>
+                    <p className="mt-1 text-sm tracking-[0.16em] text-slate-300">{item.position}</p>
+                    <p className="mt-1 text-xs tracking-[0.2em] text-slate-500">{item.duration}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-400">{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="card-surface h-full rounded-2xl p-6 sm:p-7">
+          <h2 className="section-kicker">EDUCATION</h2>
           <div className="mt-7 space-y-6 border-l border-slate-600/50 pl-5">
             {educationData.map((item, index) => (
               <div key={index} className="relative">
