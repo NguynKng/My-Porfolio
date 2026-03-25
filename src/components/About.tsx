@@ -7,6 +7,11 @@ export default function About() {
       position: "INFORMATION TECHNOLOGY",
       duration: "2022 - Present",
     },
+    {
+      company: "IIG Vietnam",
+      position: "TOEIC CERTIFICATION - SCORE: 820",
+      duration: "Achieved",
+    },
   ];
 
   return (
@@ -43,7 +48,7 @@ export default function About() {
         </div>
 
         <div className="card-surface rounded-2xl p-6 sm:p-7">
-          <h2 className="section-kicker">EDUCATION</h2>
+          <h2 className="section-kicker">EDUCATION & CERTIFICATION</h2>
           <div className="mt-7 space-y-6 border-l border-slate-600/50 pl-5">
             {educationData.map((item, index) => (
               <div key={index} className="relative">
