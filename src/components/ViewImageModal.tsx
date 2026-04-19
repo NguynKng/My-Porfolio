@@ -86,7 +86,7 @@ export default function ViewImageModal({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#02060dcc] p-3 backdrop-blur-sm sm:p-5"
+        className="fixed inset-0 z-9999 flex items-center justify-center bg-[#02060dcc] p-3 backdrop-blur-sm sm:p-5"
       >
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.98 }}
@@ -97,7 +97,7 @@ export default function ViewImageModal({
           <p className="text-center text-slate-300">No media available for this project.</p>
           <button
             onClick={onClose}
-            className="absolute right-4 top-4 rounded-full border border-slate-500/60 bg-slate-950/95 p-2.5 text-slate-100 transition hover:border-slate-300"
+            className="absolute right-4 top-4 rounded-full border border-slate-500/60 bg-slate-950/95 p-2.5 text-slate-100 transition hover:border-slate-300 cursor-pointer"
             aria-label="Close modal"
           >
             <X className="size-4" />
@@ -119,7 +119,7 @@ export default function ViewImageModal({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[9999] bg-[#02060dcc] p-2 backdrop-blur-sm sm:p-4"
+        className="fixed inset-0 z-9999 bg-[#02060dcc] p-2 backdrop-blur-sm sm:p-4"
       >
         <motion.div
           initial={{ opacity: 0, y: 28, scale: 0.985 }}
@@ -130,7 +130,7 @@ export default function ViewImageModal({
         >
           <button
             onClick={onClose}
-            className="absolute right-3 top-3 z-30 rounded-full border border-slate-500/60 bg-slate-950/95 p-2.5 text-slate-100 transition hover:border-slate-300 sm:right-4 sm:top-4"
+            className="absolute right-3 top-3 z-30 rounded-full border border-slate-500/60 bg-slate-950/95 p-2.5 text-slate-100 transition hover:border-slate-300 sm:right-4 sm:top-4 cursor-pointer"
             aria-label="Close modal"
           >
             <X className="size-4" />
@@ -170,14 +170,14 @@ export default function ViewImageModal({
                 <>
                   <button
                     onClick={goPrev}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-slate-400/40 bg-black/55 p-2 text-white transition hover:border-slate-200/65"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-slate-400/40 bg-black/55 p-2 text-white transition hover:border-slate-200/65 cursor-pointer"
                     aria-label="Previous"
                   >
                     <ChevronLeft className="size-5" />
                   </button>
                   <button
                     onClick={goNext}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-slate-400/40 bg-black/55 p-2 text-white transition hover:border-slate-200/65"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-slate-400/40 bg-black/55 p-2 text-white transition hover:border-slate-200/65 cursor-pointer"
                     aria-label="Next"
                   >
                     <ChevronRight className="size-5" />
@@ -202,8 +202,8 @@ export default function ViewImageModal({
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 rounded-full border border-slate-600/50 bg-white/5 px-3 py-2 text-xs tracking-[0.16em] text-slate-300">
-                  <GalleryHorizontal className="size-4 text-[#f5c55d]" />
+                <div className="flex items-center gap-2 rounded-full border border-blue-600/50 bg-blue-500/10 px-3 py-2 text-xs tracking-[0.16em] text-blue-300">
+                  <GalleryHorizontal className="size-4 text-blue-400" />
                   SLIDE GALLERY
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function ViewImageModal({
                     to={project.frontendLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70"
+                    className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70 cursor-pointer"
                   >
                     <Github size={18} />
                     Frontend
@@ -241,7 +241,7 @@ export default function ViewImageModal({
                     to={project.backendLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70"
+                    className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70 cursor-pointer"
                   >
                     <Github size={18} />
                     Backend
@@ -252,7 +252,7 @@ export default function ViewImageModal({
                     to={project.nativeLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70"
+                    className="flex items-center gap-2 rounded-lg border border-slate-600/55 bg-slate-900/70 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-300/70 cursor-pointer"
                   >
                     <Smartphone size={18} />
                     Mobile

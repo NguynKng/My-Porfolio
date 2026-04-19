@@ -1,8 +1,8 @@
 export default function Intro() {
   return (
     <section className="section-shell relative overflow-hidden pb-20 pt-14 lg:pb-28 lg:pt-24">
-      <div className="pointer-events-none absolute right-[-12rem] top-[-16rem] h-[34rem] w-[34rem] rounded-full bg-[#f5c55d1a] blur-3xl" />
-      <div className="pointer-events-none absolute left-[-12rem] bottom-[-16rem] h-[30rem] w-[30rem] rounded-full bg-[#60a5fa20] blur-3xl" />
+      <div className="pointer-events-none absolute right-[-12rem] top-[-16rem] h-[34rem] w-[34rem] rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute left-[-12rem] bottom-[-16rem] h-[30rem] w-[30rem] rounded-full bg-cyan-500/10 blur-3xl" />
 
       <div className="relative card-surface overflow-hidden rounded-[2rem] p-7 sm:p-10 lg:p-14">
         <div className="absolute right-0 top-0 h-56 w-56 translate-x-1/3 -translate-y-1/3 rounded-full border border-slate-400/20 animate-[float_8s_ease-in-out_infinite]" />

@@ -136,7 +136,7 @@ function ProjectCard({
   return (
     <button
       type="button"
-      className="group relative flex w-[310px] shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-700/40 bg-[#0d1525] text-left outline-none transition-all duration-300 hover:border-amber-400/30 hover:shadow-[0_8px_40px_rgba(245,197,93,0.1)] focus-visible:ring-2 focus-visible:ring-amber-400/50 sm:w-[380px]"
+      className="group relative flex w-[340px] shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-700/40 bg-[#0d1525] text-left outline-none transition-all duration-300 hover:border-blue-400/30 hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)] focus-visible:ring-2 focus-visible:ring-blue-400/50 sm:w-[460px] cursor-pointer"
       onClick={() => onOpen(item)}
     >
       {/* ── Thumbnail ── */}
@@ -155,13 +155,13 @@ function ProjectCard({
 
         {/* type pill */}
         <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-white backdrop-blur-sm">
-          <Layers3 className="size-3 text-amber-400" />
+          <Layers3 className="size-3 text-blue-400" />
           {item.type}
         </div>
 
         {/* hover CTA */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
-          <span className="flex items-center gap-2 rounded-full bg-amber-400 px-5 py-2.5 text-xs font-bold text-black shadow-lg">
+          <span className="flex items-center gap-2 rounded-full bg-blue-500 px-5 py-2.5 text-xs font-bold text-white shadow-lg">
             <Eye className="size-3.5" />
             View Project
           </span>
@@ -173,17 +173,17 @@ function ProjectCard({
         {/* header row */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-amber-400/60">
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-400/60">
               PROJECT / {String(index + 1).padStart(2, "0")}
             </p>
-            <h3 className="mt-2 font-[Sora] text-xl font-bold leading-tight text-white transition-colors duration-300 group-hover:text-amber-400 sm:text-2xl">
+            <h3 className="mt-2 font-[Sora] text-xl font-bold leading-tight text-white transition-colors duration-300 group-hover:text-blue-400 sm:text-2xl">
               {item.projectName}
             </h3>
             <p className="mt-1 text-sm italic text-slate-500">
               {item.title.split(" - ")[1] || ""}
             </p>
           </div>
-          <div className="mt-1 flex size-10 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/5 text-slate-500 transition-all duration-300 group-hover:border-amber-400/30 group-hover:bg-amber-400/10 group-hover:text-amber-400 group-hover:rotate-12">
+          <div className="mt-1 flex size-10 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/5 text-slate-500 transition-all duration-300 group-hover:border-blue-400/30 group-hover:bg-blue-400/10 group-hover:text-blue-400 group-hover:rotate-12">
             <ArrowUpRight className="size-5" />
           </div>
         </div>
@@ -229,7 +229,7 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
     setCanRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 8);
     // update active dot
     const isMobile = window.innerWidth < 640;
-    const cardWidth = (isMobile ? 310 : 380) + 40; // width + gap-10
+    const cardWidth = (isMobile ? 340 : 460) + 40; // width + gap-10
     setActiveIndex(Math.round(el.scrollLeft / cardWidth));
   };
 
@@ -252,14 +252,14 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
       <div className="section-shell mb-16 flex items-end justify-between gap-6">
         <div>
           <div className="mb-4 flex items-center gap-4">
-            <span className="h-px w-10 bg-amber-400" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.5em] text-amber-400">
+            <span className="h-px w-10 bg-blue-400" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.5em] text-blue-400">
               Portfolio
             </span>
           </div>
           <h2 className="font-[Sora] text-5xl font-bold text-white sm:text-6xl">
             Selected{" "}
-            <span className="bg-linear-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
@@ -274,7 +274,7 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
             aria-label="Previous"
             onClick={() => slide("left")}
             disabled={!canLeft}
-            className="flex size-12 items-center justify-center rounded-full border border-slate-700/60 bg-slate-800/60 text-slate-400 transition-all duration-300 hover:border-amber-400 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-20"
+            className="flex size-12 items-center justify-center rounded-full border border-slate-700/60 bg-slate-800/60 text-slate-400 transition-all duration-300 hover:border-blue-400 hover:text-blue-400 disabled:cursor-not-allowed disabled:opacity-20 cursor-pointer"
           >
             <ArrowLeft className="size-5" />
           </button>
@@ -282,31 +282,31 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
             aria-label="Next"
             onClick={() => slide("right")}
             disabled={!canRight}
-            className="flex size-12 items-center justify-center rounded-full border border-slate-700/60 bg-slate-800/60 text-slate-400 transition-all duration-300 hover:border-amber-400 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-20"
+            className="flex size-12 items-center justify-center rounded-full border border-slate-700/60 bg-slate-800/60 text-slate-400 transition-all duration-300 hover:border-blue-400 hover:text-blue-400 disabled:cursor-not-allowed disabled:opacity-20 cursor-pointer"
           >
             <ArrowRight className="size-5" />
           </button>
         </div>
       </div>
 
-      {/* ── Slide track (full-width bleed, left-aligned with section-shell) ── */}
-      <div
-        ref={trackRef}
-        onScroll={onScroll}
-        className="hide-scrollbar flex gap-10 overflow-x-auto pb-16 pt-4"
-        style={{
-          scrollSnapType: "x mandatory",
-          paddingLeft: "max(3.5rem, calc((100vw - 1120px) / 2 + 3.5rem))",
-          paddingRight: "max(3.5rem, calc((100vw - 1120px) / 2 + 3.5rem))",
-        }}
-      >
-        {PROJECT_DATA.map((project, index) => (
-          <div key={project.projectName} className="snap-start">
-            <ProjectCard item={project} index={index} onOpen={onOpenProject} />
-          </div>
-        ))}
-        {/* Extra spacer for padding on the right */}
-        <div className="w-1 shrink-0" aria-hidden="true" />
+      {/* ── Slide track (Constrained within section-shell) ── */}
+      <div className="section-shell">
+        <div
+          ref={trackRef}
+          onScroll={onScroll}
+          className="hide-scrollbar flex gap-10 overflow-x-auto pb-16 pt-4"
+          style={{
+            scrollSnapType: "x mandatory",
+          }}
+        >
+          {PROJECT_DATA.map((project, index) => (
+            <div key={project.projectName} className="snap-start">
+              <ProjectCard item={project} index={index} onOpen={onOpenProject} />
+            </div>
+          ))}
+          {/* Extra spacer for padding on the right */}
+          <div className="w-1 shrink-0" aria-hidden="true" />
+        </div>
       </div>
 
       {/* ── Dot indicators ── */}
@@ -316,10 +316,10 @@ export default function Works({ onOpenProject }: { onOpenProject: (p: Project) =
             key={p.projectName}
             aria-label={`Go to ${p.projectName}`}
             onClick={() => goTo(i)}
-            className="h-1.5 rounded-full transition-all duration-500"
+            className="h-1.5 rounded-full transition-all duration-500 cursor-pointer"
             style={{
               width: i === activeIndex ? "3rem" : "0.75rem",
-              background: i === activeIndex ? "rgb(251 191 36)" : "rgba(255,255,255,0.1)",
+              background: i === activeIndex ? "rgb(59 130 246)" : "rgba(255,255,255,0.1)",
             }}
           />
         ))}

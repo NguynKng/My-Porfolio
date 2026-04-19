@@ -13,20 +13,20 @@ export default function Header({ activeSection }: { activeSection: string }) {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070b12]/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-[#070b12]/70">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070b12]/80 backdrop-blur-2xl supports-backdrop-filter:bg-[#070b12]/70">
       <div className="mx-auto flex h-18 w-full max-w-[1120px] items-center justify-between px-4 sm:px-6">
         <button
           type="button"
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 cursor-pointer group"
           onClick={() => handleNavClick("INTRO")}
           aria-label="Go to intro"
         >
-          <span className="flex size-10 items-center justify-center rounded-2xl border border-slate-500/35 bg-white/5 text-[11px] font-semibold tracking-[0.28em] text-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.22)]">
-            NK
-          </span>
+          <div className="relative size-11 overflow-hidden rounded-2xl border border-slate-500/35 bg-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.22)] transition-transform duration-300 group-hover:scale-110">
+            <img src="/stitch.webp" alt="Logo" className="h-full w-full object-cover" />
+          </div>
           <div className="hidden text-left sm:block">
-            <p className="text-[11px] tracking-[0.28em] text-slate-300">NGUYNKNG</p>
-            <p className="mt-1 text-[10px] tracking-[0.22em] text-slate-500">PORTFOLIO</p>
+            <p className="text-[11px] font-bold tracking-[0.28em] text-slate-100 group-hover:text-blue-400 transition-colors">NGUYNKNG</p>
+            <p className="mt-0.5 text-[10px] tracking-[0.22em] text-slate-500">PORTFOLIO</p>
           </div>
         </button>
 
@@ -40,8 +40,8 @@ export default function Header({ activeSection }: { activeSection: string }) {
                 onClick={() => handleNavClick(tab)}
                 className={`rounded-full px-4 py-2 text-[10px] font-medium tracking-[0.24em] transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-[#162338] text-[#f5c55d] shadow-[0_8px_30px_rgba(245,197,93,0.1)]"
-                    : "text-slate-300 hover:bg-[#122038] hover:text-slate-100"
+                    ? "bg-blue-500/10 text-blue-400 shadow-[0_8px_30px_rgba(59,130,246,0.1)]"
+                    : "text-slate-300 hover:bg-white/5 hover:text-slate-100"
                 }`}
               >
                 {tab}
@@ -52,7 +52,7 @@ export default function Header({ activeSection }: { activeSection: string }) {
 
         <button
           type="button"
-          className="rounded-full border border-slate-600/45 bg-white/5 p-2.5 text-slate-100 transition hover:border-slate-300/70 md:hidden"
+          className="rounded-full border border-slate-600/45 bg-white/5 p-2.5 text-slate-100 transition hover:border-slate-300/70 md:hidden cursor-pointer"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Toggle navigation"
         >
@@ -74,7 +74,7 @@ export default function Header({ activeSection }: { activeSection: string }) {
                 type="button"
                 onClick={() => handleNavClick(tab)}
                 className={`w-full rounded-xl px-4 py-3 text-left text-xs tracking-[0.24em] transition-colors cursor-pointer ${
-                  isActive ? "bg-[#162338] text-[#f5c55d]" : "text-slate-300 hover:bg-[#122038]"
+                  isActive ? "bg-blue-500/10 text-blue-400" : "text-slate-300 hover:bg-white/5"
                 }`}
               >
                 {tab}

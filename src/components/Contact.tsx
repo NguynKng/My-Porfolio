@@ -45,7 +45,7 @@ export default function Contact() {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-slate-600/50 bg-slate-900/60 p-2 transition hover:-translate-y-1 hover:border-slate-300/70"
+                className="rounded-full border border-slate-600/50 bg-slate-900/60 p-2 transition hover:-translate-y-1 hover:border-slate-300/70 cursor-pointer"
               >
                 <img src={item.icon} alt={item.link} className="h-5 w-5" />
               </a>
@@ -55,9 +55,9 @@ export default function Contact() {
 
         <a
           href="mailto:nguynkhang2109@gmail.com"
-          className="card-surface flex min-h-40 items-center justify-center rounded-2xl p-6 text-center"
+          className="card-surface flex min-h-40 items-center justify-center rounded-2xl p-6 text-center cursor-pointer"
         >
-          <span className="rounded-full border border-slate-500/50 bg-[#142034] px-6 py-3 text-xs tracking-[0.24em] text-[#f5c55d] transition hover:border-slate-300/65 hover:text-slate-100">
+          <span className="rounded-full border border-blue-500/50 bg-blue-500/10 px-6 py-3 text-xs tracking-[0.24em] text-blue-400 transition hover:border-blue-400 hover:bg-blue-500/20 cursor-pointer">
             SAY HELLO.
           </span>
         </a>
