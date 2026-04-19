@@ -18,7 +18,7 @@ export default function Contact() {
     },
   ];
   return (
-    <section className="section-shell">
+    <section className="section-shell py-16 lg:py-24">
       <h1 className="section-kicker">GET IN TOUCH</h1>
       <p className="mt-7 max-w-4xl font-[Sora] text-3xl font-semibold leading-tight text-slate-100 sm:text-4xl lg:text-5xl">
         I love to hear from you. Whether you have a question or just want to

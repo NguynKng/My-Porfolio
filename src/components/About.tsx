@@ -21,7 +21,7 @@ export default function About() {
   ];
 
   return (
-    <section className="section-shell">
+    <section className="section-shell py-16 lg:py-24">
       <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_1.05fr]">
         <img
           src="/avatar-1.jpg"

@@ -6,9 +6,28 @@ import Works from "./Works";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import RevealOnScroll from "./RevealOnScroll";
+import ViewImageModal from "./ViewImageModal";
+
+type Project = {
+  projectName: string;
+  imageUrl: string;
+  title: string;
+  type: string;
+  technologies: string[];
+  detailMedia: {
+    type: "image" | "video";
+    src: string;
+  }[];
+  description: string;
+  backendLink: string;
+  frontendLink: string;
+  nativeLink?: string;
+};
 
 export default function MainLayout() {
   const [activeSection, setActiveSection] = useState("INTRO");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project>({} as Project);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -53,6 +72,11 @@ export default function MainLayout() {
     };
   }, []);
 
+  const openProject = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="site-shell min-h-screen">
       <Header activeSection={activeSection} />
@@ -67,7 +91,7 @@ export default function MainLayout() {
         </RevealOnScroll>
 
         <RevealOnScroll id="WORKS">
-          <Works />
+          <Works onOpenProject={openProject} />
         </RevealOnScroll>
 
         <RevealOnScroll id="CONTACT">
@@ -76,6 +100,12 @@ export default function MainLayout() {
       </main>
 
       <Footer />
+
+      <ViewImageModal
+        isOpen={isModalOpen}
+        project={selectedProject}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

@@ -11,9 +11,8 @@
 }
 
 .section-shell {
-  width: min(1120px, 100% - 2rem);
+  width: min(1120px, 100% - 3.5rem);
   margin-inline: auto;
-  padding-block: clamp(3rem, 9vw, 6rem);
 }
 
 .section-kicker {
