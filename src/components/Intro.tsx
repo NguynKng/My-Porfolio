@@ -1,4 +1,5 @@
 import { ArrowDown, ArrowRight, ChartNoAxesColumnIncreasing, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const quickLinks = [
   { label: "GitHub", href: "https://github.com/NguynKng", icon: Github },
@@ -15,7 +16,7 @@ export default function Intro() {
           <p className="hero-name">Nguyen Huu Nguyen Khang</p>
           <h1>Full-stack<br />Developer<br /><span className="hero-last-line">with a <strong>Backend Focus</strong></span></h1>
           <p className="hero-description">I build web and mobile applications with TypeScript, React/Next.js, Node.js/NestJS, and PostgreSQL, with a focus on APIs, real-time features, and practical product delivery.</p>
-          <div className="hero-actions"><a href="#PROJECTS" className="button-primary">View My Work <ArrowRight size={17} /></a><a href="#CONTACT" className="button-outline">Contact Me</a></div>
+          <div className="hero-actions"><Link to="/" state={{ scrollTo: "PROJECTS" }} className="button-primary">View My Work <ArrowRight size={17} /></Link><Link to="/" state={{ scrollTo: "CONTACT" }} className="button-outline">Contact Me</Link></div>
           <div className="hero-socials">{quickLinks.map(({ label, href, icon: Icon }) => <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}><Icon size={19} />{label}</a>)}</div>
           <p className="hero-location"><MapPin size={16} />Ho Chi Minh City, Vietnam</p>
         </div>
@@ -26,7 +27,7 @@ export default function Intro() {
           <div className="project-count"><strong>3</strong><span>Featured<br />Projects</span><ChartNoAxesColumnIncreasing size={30} /></div>
         </div>
       </div>
-      <a className="hero-scroll" href="#ABOUT" aria-label="Scroll to About">Scroll<span /><ArrowDown size={13} /></a>
+      <Link className="hero-scroll" to="/" state={{ scrollTo: "ABOUT" }} aria-label="Scroll to About">Scroll<span /><ArrowDown size={13} /></Link>
     </section>
   );
 }

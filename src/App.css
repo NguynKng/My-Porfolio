@@ -26,11 +26,11 @@
 .download-cv:hover { background: var(--accent-strong); }
 .header-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: var(--header-control); border: 1px solid var(--header-control-border); color: var(--hero-text); transition: background 180ms ease, border-color 180ms ease, transform 180ms ease; }
 .header-icon:hover { background: rgb(255 255 255 / 18%); border-color: rgb(255 255 255 / 30%); }
-.theme-toggle { position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; width: 76px; height: 40px; border-radius: 999px; border: 1px solid var(--header-control-border); background: var(--header-control); color: var(--hero-text); padding: 0 7px; overflow: hidden; transition: background 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.theme-toggle { position: relative; display: grid; grid-template-columns: repeat(2, 30px); justify-content: space-between; align-items: center; width: 76px; height: 40px; border-radius: 999px; border: 1px solid var(--header-control-border); background: var(--header-control); color: var(--hero-text); padding: 4px; overflow: hidden; transition: background 180ms ease, border-color 180ms ease, transform 180ms ease; }
 .theme-toggle:hover { background: rgb(255 255 255 / 18%); border-color: rgb(255 255 255 / 30%); }
 .theme-toggle-thumb { position: absolute; top: 4px; left: 4px; width: 30px; height: 30px; border-radius: 999px; background: var(--theme-thumb); box-shadow: 0 8px 18px rgb(0 0 0 / 20%), inset 0 1px 0 rgb(255 255 255 / 70%); transition: transform 260ms cubic-bezier(.22, 1, .36, 1), background 180ms ease; }
 .theme-toggle[data-theme="dark"] .theme-toggle-thumb { transform: translateX(36px); }
-.theme-toggle-icon { position: relative; z-index: 1; display: grid; place-items: center; color: var(--hero-text); }
+.theme-toggle-icon { position: relative; z-index: 1; display: grid; place-items: center; width: 30px; height: 30px; color: var(--hero-text); }
 .theme-toggle[data-theme="light"] .theme-toggle-sun,
 .theme-toggle[data-theme="dark"] .theme-toggle-moon { color: var(--hero-bg); }
 .menu-toggle { display: none; }

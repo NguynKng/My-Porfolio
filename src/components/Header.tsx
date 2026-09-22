@@ -34,8 +34,8 @@ export default function Header({ activeSection }: { activeSection: string }) {
   return (
     <header className="site-header">
       <div className="section-shell header-inner">
-        <Link className="wordmark" to="/#HOME" onClick={() => setOpen(false)}>Khang<span>.</span></Link>
-        <nav className="desktop-nav" aria-label="Main navigation">{tabs.map((tab) => <Link key={tab} to={`/#${tab.toUpperCase()}`} aria-current={activeSection === tab.toUpperCase() ? "location" : undefined}>{tab}</Link>)}</nav>
+        <Link className="wordmark" to="/" state={{ scrollTo: "HOME" }} onClick={() => setOpen(false)}>Khang<span>.</span></Link>
+        <nav className="desktop-nav" aria-label="Main navigation">{tabs.map((tab) => <Link key={tab} to="/" state={{ scrollTo: tab.toUpperCase() }} aria-current={activeSection === tab.toUpperCase() ? "location" : undefined}>{tab}</Link>)}</nav>
         <div className="header-actions">
           <a className="download-cv" href="/cv/NguyenHuuNguyenKhang_CV.pdf" download><ArrowDownToLine size={15} /><span>Download CV</span></a>
           <button className="theme-toggle" data-theme={theme} onClick={() => setTheme(dark ? "light" : "dark")} aria-label={dark ? "Switch to light theme" : "Switch to dark theme"} aria-pressed={dark} title={dark ? "Switch to light theme" : "Switch to dark theme"}>
@@ -46,7 +46,7 @@ export default function Header({ activeSection }: { activeSection: string }) {
           <button className="header-icon menu-toggle" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-nav">{open ? <X size={20} /> : <Menu size={20} />}</button>
         </div>
       </div>
-      {open && <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation">{tabs.map((tab) => <Link key={tab} to={`/#${tab.toUpperCase()}`} onClick={() => setOpen(false)} aria-current={activeSection === tab.toUpperCase() ? "location" : undefined}>{tab}</Link>)}</nav>}
+      {open && <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation">{tabs.map((tab) => <Link key={tab} to="/" state={{ scrollTo: tab.toUpperCase() }} onClick={() => setOpen(false)} aria-current={activeSection === tab.toUpperCase() ? "location" : undefined}>{tab}</Link>)}</nav>}
     </header>
   );
 }

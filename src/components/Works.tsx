@@ -32,11 +32,10 @@ export default function Works() {
         <div className="project-track hide-scrollbar" ref={track} onScroll={updateEdges}>
           {projects.map((project, index) => {
             const Icon = icons[index];
-            const preview = project.detailMedia.find((media) => media.type === "image");
             return <article className="project-card" key={project.projectName}>
               <Link className="project-open" to={`/projects/${project.slug}`} aria-label={`View ${project.projectName} details`}>
                 <div className={`project-preview preview-${index}`}>
-                  {preview ? <img src={preview.src} alt="BingBong application" loading="lazy" /> : <div className="project-placeholder"><Icon size={42} strokeWidth={1.3} /><strong>{project.projectName}</strong><span>{project.type}</span></div>}
+                  <img src={project.previewImage} alt={`${project.projectName} preview`} loading="lazy" />
                   {index === 0 && <span className="featured-label">Featured</span>}
                   <span className="project-arrow"><ArrowRight size={19} /></span>
                 </div>

@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowRight, Award, BriefcaseBusiness, GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const featuredSkills = [
   ["TypeScript", "typescript"], ["JavaScript", "javascript"], ["React", "react"],
@@ -56,7 +57,7 @@ export default function Journey() {
         </div>
       </div>
         </div>
-        <aside className="learning-panel"><GraduationCap size={26} /><h3>Always learning,<br />always building.</h3><p>Turning ideas into real products through code.</p><a href="#PROJECTS" className="circle-link" aria-label="Explore my projects" title="Explore my projects"><ArrowRight size={20} /></a><div className="learning-lines" aria-hidden="true" /></aside>
+        <aside className="learning-panel"><GraduationCap size={26} /><h3>Always learning,<br />always building.</h3><p>Turning ideas into real products through code.</p><Link to="/" state={{ scrollTo: "PROJECTS" }} className="circle-link" aria-label="Explore my projects" title="Explore my projects"><ArrowRight size={20} /></Link><div className="learning-lines" aria-hidden="true" /></aside>
       </div>
     </section>
   );

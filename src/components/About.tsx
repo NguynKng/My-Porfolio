@@ -1,4 +1,5 @@
 import { ArrowRight, Brain, Lightbulb, Rocket, ShieldCheck, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const traits = [
   { title: "Problem Solver", body: "I enjoy breaking down complex problems.", icon: Brain },
@@ -17,7 +18,7 @@ export default function About() {
           <p>I'm a Full-stack Developer with a backend focus, based in Ho Chi Minh City. I build practical web and mobile applications, from user interfaces and REST APIs to databases, real-time features, and deployment.</p>
           <p>My work spans React, Next.js, React Native, Node.js, NestJS, PostgreSQL, MongoDB, Prisma, and TypeORM, with hands-on experience in Docker, Nginx, Linux VPS, Cloudflare, object storage, and mobile builds.</p>
           <p>I'm looking for Fresher or Junior opportunities to contribute to real products and strengthen my software engineering fundamentals.</p>
-          <a href="#EXPERIENCE" className="text-link">Get to know me <ArrowRight size={16} /></a>
+          <Link to="/" state={{ scrollTo: "EXPERIENCE" }} className="text-link">Get to know me <ArrowRight size={16} /></Link>
         </div>
         <div className="about-visual">
           <p className="font-hand about-note">Good developers<br />build good habits.</p>

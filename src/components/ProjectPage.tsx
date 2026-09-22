@@ -50,7 +50,7 @@ function ProjectContent({ project }: { project: Project }) {
       <Header activeSection="PROJECTS" />
       <main id="case-main" tabIndex={-1}>
         <div className="section-shell case-shell">
-          <nav className="case-breadcrumb" aria-label="Breadcrumb"><Link to="/#PROJECTS"><ArrowLeft size={17} />All projects</Link><span>Selected work / {String(projectIndex + 1).padStart(2, "0")}</span></nav>
+          <nav className="case-breadcrumb" aria-label="Breadcrumb"><Link to="/" state={{ scrollTo: "PROJECTS" }}><ArrowLeft size={17} />All projects</Link><span>Selected work / {String(projectIndex + 1).padStart(2, "0")}</span></nav>
           <section className="case-intro" aria-labelledby="case-title">
             <p className="eyebrow">{project.slug === "servio" ? "Featured project" : "Selected project"}</p>
             <h1 id="case-title">{project.projectName}<span>.</span></h1>
@@ -80,7 +80,7 @@ function ProjectContent({ project }: { project: Project }) {
         <section className="case-next">
           <div className="section-shell case-shell">
             <Link to={`/projects/${nextProject.slug}`} className="case-next-link"><div><p>Next project</p><h2>{nextProject.projectName}</h2><span>{nextProject.type}</span></div><span className="case-next-arrow"><ArrowRight size={28} /></span></Link>
-            <Link to="/#PROJECTS" className="case-back"><ArrowLeft size={16} />Back to all projects</Link>
+            <Link to="/" state={{ scrollTo: "PROJECTS" }} className="case-back"><ArrowLeft size={16} />Back to all projects</Link>
           </div>
         </section>
       </main>
@@ -92,6 +92,6 @@ function ProjectContent({ project }: { project: Project }) {
 export default function ProjectPage() {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
-  if (!project) return <Navigate to="/#PROJECTS" replace />;
+  if (!project) return <Navigate to="/" state={{ scrollTo: "PROJECTS" }} replace />;
   return <ProjectContent key={project.slug} project={project} />;
 }

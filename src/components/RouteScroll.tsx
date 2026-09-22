@@ -14,11 +14,14 @@ export default function RouteScroll() {
 
   useLayoutEffect(() => {
     const savedPositions = positions.current;
-    const target = location.hash ? document.getElementById(location.hash.slice(1)) : null;
+    const state = location.state as { scrollTo?: string } | null;
+    const targetId = state?.scrollTo ?? (location.hash ? location.hash.slice(1) : null);
+    const target = targetId ? document.getElementById(targetId) : null;
     if (navigationType === "POP" && savedPositions.has(location.key)) {
       window.scrollTo({ top: savedPositions.get(location.key), behavior: "instant" });
     } else if (target) {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (location.hash) window.history.replaceState(window.history.state, "", location.pathname);
     } else {
       window.scrollTo({ top: 0, behavior: "instant" });
     }
@@ -28,7 +31,7 @@ export default function RouteScroll() {
       focusTarget?.focus({ preventScroll: true });
     }
     return () => { savedPositions.set(location.key, window.scrollY); };
-  }, [location.key, location.pathname, location.hash, navigationType]);
+  }, [location.key, location.pathname, location.hash, location.state, navigationType]);
 
   return null;
 }
