@@ -1,29 +1,32 @@
+import { ArrowDown, ArrowRight, ChartNoAxesColumnIncreasing, Github, Linkedin, Mail, MapPin } from "lucide-react";
+
+const quickLinks = [
+  { label: "GitHub", href: "https://github.com/NguynKng", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/nguynkhang/", icon: Linkedin },
+  { label: "Email", href: "mailto:nguynkhang2109@gmail.com", icon: Mail },
+];
+
 export default function Intro() {
   return (
-    <section className="section-shell relative overflow-hidden pb-20 pt-14 lg:pb-28 lg:pt-24">
-      <div className="pointer-events-none absolute right-[-12rem] top-[-16rem] h-[34rem] w-[34rem] rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute left-[-12rem] bottom-[-16rem] h-[30rem] w-[30rem] rounded-full bg-cyan-500/10 blur-3xl" />
-
-      <div className="relative card-surface overflow-hidden rounded-[2rem] p-7 sm:p-10 lg:p-14">
-        <div className="absolute right-0 top-0 h-56 w-56 translate-x-1/3 -translate-y-1/3 rounded-full border border-slate-400/20 animate-[float_8s_ease-in-out_infinite]" />
-        <div className="absolute right-20 top-12 h-24 w-24 rounded-full border border-slate-500/30" />
-
-        <span className="section-kicker">HELLO WORLD</span>
-
-        <h1 className="mt-7 max-w-4xl font-[Sora] text-4xl font-semibold leading-tight text-slate-100 sm:text-5xl lg:text-7xl">
-          I am Nguyen Khang, building polished web and mobile products.
-        </h1>
-
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-          Based in Ho Chi Minh City, I focus on clean architecture, strong backend systems, and user-friendly interfaces that feel fast and intentional.
-        </p>
-
-        <div className="mt-10 flex flex-wrap items-center gap-4 text-xs tracking-[0.22em] text-slate-400">
-          <span className="rounded-full border border-slate-500/35 bg-slate-900/60 px-4 py-2">WEB DEVELOPMENT</span>
-          <span className="rounded-full border border-slate-500/35 bg-slate-900/60 px-4 py-2">MOBILE APPS</span>
-          <span className="rounded-full border border-slate-500/35 bg-slate-900/60 px-4 py-2">RESTFUL API</span>
+    <section className="hero-field">
+      <div className="section-shell hero-grid">
+        <div className="hero-copy">
+          <div className="availability"><span />Available for opportunities</div>
+          <p className="hero-name">Nguyen Huu Nguyen Khang</p>
+          <h1>Full-stack<br />Developer<br /><span className="hero-last-line">with a <strong>Backend Focus</strong></span></h1>
+          <p className="hero-description">I build web and mobile applications with TypeScript, React/Next.js, Node.js/NestJS, and PostgreSQL, with a focus on APIs, real-time features, and practical product delivery.</p>
+          <div className="hero-actions"><a href="#PROJECTS" className="button-primary">View My Work <ArrowRight size={17} /></a><a href="#CONTACT" className="button-outline">Contact Me</a></div>
+          <div className="hero-socials">{quickLinks.map(({ label, href, icon: Icon }) => <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}><Icon size={19} />{label}</a>)}</div>
+          <p className="hero-location"><MapPin size={16} />Ho Chi Minh City, Vietnam</p>
+        </div>
+        <div className="hero-visual">
+          <p className="font-hand hero-note">Build<br />Learn<br />Improve<br />Repeat<ArrowDown size={28} /></p>
+          <div className="portrait-frame"><img src="/avatar-1.jpg" alt="Nguyen Huu Nguyen Khang" fetchPriority="high" /></div>
+          <div className="code-caption"><code><span>const</span> developer = {"{"}<br />&nbsp; name: <em>"Nguyen Huu Nguyen Khang"</em>,<br />&nbsp; role: <em>"Full-stack Developer"</em>,<br />&nbsp; focus: <em>"Backend"</em>,<br />&nbsp; location: <em>"Ho Chi Minh City"</em>,<br />&nbsp; mindset: <em>"Keep learning"</em><br />{"}"}</code></div>
+          <div className="project-count"><strong>3</strong><span>Featured<br />Projects</span><ChartNoAxesColumnIncreasing size={30} /></div>
         </div>
       </div>
+      <a className="hero-scroll" href="#ABOUT" aria-label="Scroll to About">Scroll<span /><ArrowDown size={13} /></a>
     </section>
   );
 }

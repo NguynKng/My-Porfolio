@@ -1,43 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
-:root {
-	--bg-main: #070b12;
-	--bg-surface: #0f1621;
-	--bg-surface-soft: #131d2b;
-	--text-main: #e7edf5;
-	--text-muted: #8c9aae;
-	--accent: #f5c55d;
-	--accent-soft: #3b82f6;
-	--line-soft: rgba(148, 163, 184, 0.2);
-}
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/fonts/inter.ttf") format("truetype"); }
+@font-face { font-family: "Caveat"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/fonts/caveat.ttf") format("truetype"); }
 
-* {
-	box-sizing: border-box;
-}
-
-html,
-body,
-#root {
-	min-height: 100%;
-}
-
-body {
-	margin: 0;
-	font-family: "Space Grotesk", sans-serif;
-	color: var(--text-main);
-	background:
-		radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.16), transparent 35%),
-		radial-gradient(circle at 85% 10%, rgba(245, 197, 93, 0.1), transparent 25%),
-		var(--bg-main);
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-::selection {
-	color: #06080d;
-	background: #d7e3f7;
-}
+:root { --ink: #102441; --ink-soft: #415e7c; --ink-muted: #627996; --canvas: #fff; --canvas-soft: #f7fbff; --hairline: #e0eaf4; --accent-soft: #eaf2ff; color-scheme: light; }
+:root[data-theme="dark"] { --ink: #e3edf8; --ink-soft: #b8c9dc; --ink-muted: #9db0c7; --canvas: #111f2e; --canvas-soft: #142535; --hairline: #2c4056; --accent-soft: #233d58; color-scheme: dark; }
+* { box-sizing: border-box; letter-spacing: 0; }
+html { scroll-behavior: smooth; background: var(--canvas); scroll-padding-top: 24px; }
+body { margin: 0; font-family: "Inter", system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--canvas); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, p { margin: 0; }
+a { text-decoration: none; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+a, button { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #2995ff; outline-offset: 5px; }
+::selection { color: white; background: #2684ed; }
+.font-hand { font-family: "Caveat", cursive; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
