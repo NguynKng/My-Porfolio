@@ -3,17 +3,79 @@
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/fonts/inter.ttf") format("truetype"); }
 @font-face { font-family: "Caveat"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/fonts/caveat.ttf") format("truetype"); }
 
-:root { --ink: #102441; --ink-soft: #415e7c; --ink-muted: #627996; --canvas: #fff; --canvas-soft: #f7fbff; --hairline: #e0eaf4; --accent-soft: #eaf2ff; color-scheme: light; }
-:root[data-theme="dark"] { --ink: #e3edf8; --ink-soft: #b8c9dc; --ink-muted: #9db0c7; --canvas: #111f2e; --canvas-soft: #142535; --hairline: #2c4056; --accent-soft: #233d58; color-scheme: dark; }
+:root {
+  --ink: #10233d;
+  --ink-soft: #3c5877;
+  --ink-muted: #6a8098;
+  --canvas: #fbfdff;
+  --canvas-soft: #f1f7ff;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-tinted: #e8f2ff;
+  --hairline: #d8e6f4;
+  --accent: #237ee8;
+  --accent-strong: #1264c9;
+  --accent-contrast: #f8fbff;
+  --accent-soft: #e7f1ff;
+  --accent-glow: rgb(35 126 232 / 18%);
+  --hero-bg: #071524;
+  --hero-bg-soft: #12385f;
+  --hero-panel: #11283e;
+  --hero-text: #f0f7ff;
+  --hero-text-soft: #c2d5e9;
+  --hero-text-muted: #9db6cf;
+  --project-bg: #0b2340;
+  --project-bg-soft: #123a63;
+  --on-dark: #edf6ff;
+  --on-dark-soft: #c4d9ef;
+  --header-control: rgb(255 255 255 / 10%);
+  --header-control-border: rgb(255 255 255 / 18%);
+  --theme-thumb: #f6fbff;
+  --shadow-card: 0 18px 45px rgb(25 79 124 / 12%);
+  --shadow-soft: 0 12px 30px rgb(25 79 124 / 10%);
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --ink: #e8f1fb;
+  --ink-soft: #b9c9dc;
+  --ink-muted: #8ea3ba;
+  --canvas: #0d1724;
+  --canvas-soft: #111f30;
+  --surface: #142338;
+  --surface-raised: #192b42;
+  --surface-tinted: #1c3450;
+  --hairline: #2b415c;
+  --accent: #6bb3ff;
+  --accent-strong: #93c9ff;
+  --accent-contrast: #081422;
+  --accent-soft: #203b58;
+  --accent-glow: rgb(107 179 255 / 20%);
+  --hero-bg: #0b1624;
+  --hero-bg-soft: #102a47;
+  --hero-panel: #142a40;
+  --hero-text: #f1f7ff;
+  --hero-text-soft: #c8d9ea;
+  --hero-text-muted: #97afc8;
+  --project-bg: #0e1d2f;
+  --project-bg-soft: #153354;
+  --on-dark: #f0f7ff;
+  --on-dark-soft: #c7daf0;
+  --header-control: rgb(255 255 255 / 12%);
+  --header-control-border: rgb(255 255 255 / 22%);
+  --theme-thumb: #91c9ff;
+  --shadow-card: 0 18px 45px rgb(0 0 0 / 28%);
+  --shadow-soft: 0 12px 30px rgb(0 0 0 / 22%);
+  color-scheme: dark;
+}
 * { box-sizing: border-box; letter-spacing: 0; }
-html { scroll-behavior: smooth; background: var(--canvas); scroll-padding-top: 24px; }
-body { margin: 0; font-family: "Inter", system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--canvas); -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; background: var(--canvas); scroll-padding-top: 96px; }
+body { margin: 0; font-family: "Inter", system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--canvas); -webkit-font-smoothing: antialiased; transition: background-color 240ms ease, color 240ms ease; }
 h1, h2, h3, p { margin: 0; }
 a { text-decoration: none; }
 button { cursor: pointer; }
 button:disabled { cursor: default; }
 a, button { -webkit-tap-highlight-color: transparent; }
-:focus-visible { outline: 3px solid #2995ff; outline-offset: 5px; }
-::selection { color: white; background: #2684ed; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+::selection { color: var(--accent-contrast); background: var(--accent); }
 .font-hand { font-family: "Caveat", cursive; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

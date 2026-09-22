@@ -18,7 +18,7 @@ export default function RouteScroll() {
     if (navigationType === "POP" && savedPositions.has(location.key)) {
       window.scrollTo({ top: savedPositions.get(location.key), behavior: "instant" });
     } else if (target) {
-      target.scrollIntoView({ behavior: "instant" });
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       window.scrollTo({ top: 0, behavior: "instant" });
     }
