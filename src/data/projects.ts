@@ -14,6 +14,7 @@ export type Project = {
 };
 
 const bingbongAssetBase = "/projects/bingbong";
+const pixeditAssetBase = "/projects/pixedit";
 
 export const projects: Project[] = [
   {
@@ -45,7 +46,7 @@ export const projects: Project[] = [
     period: "Mar 2025 - Jan 2026",
     team: 3,
     description: "A web and mobile social platform with real-time messaging, video calls, content sharing, AI-assisted moderation, and e-commerce.",
-    previewImage: `${bingbongAssetBase}/og-image.ico`,
+    previewImage: `${bingbongAssetBase}/og-image.jpg`,
     technologies: ["React", "React Native", "WebRTC", "Socket.IO", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Gemini API"],
     contributions: [
       "Led development of the web and mobile social networking application in a team of three.",
@@ -80,7 +81,10 @@ export const projects: Project[] = [
       "Implemented batch background removal for up to 20 images with progress tracking, retries, and ZIP downloads.",
       "Implemented internationalized SEO across 20 languages using static generation, sitemap, hreflang, and structured data.",
     ],
-    detailMedia: [],
+    detailMedia: Array.from({ length: 5 }, (_, i) => ({
+      type: "image" as const,
+      src: `${pixeditAssetBase}/screenshot-${i + 1}.jpg`,
+    })),
     links: [{ label: "Visit website", href: "https://pixedit.app" }],
   },
 ];
