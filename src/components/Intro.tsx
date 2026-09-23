@@ -13,7 +13,7 @@ export default function Intro() {
       <div className="section-shell hero-grid">
         <div className="hero-copy">
           <div className="availability"><span />Available for opportunities</div>
-          <p className="hero-name">Nguyen Huu Nguyen Khang</p>
+          <p className="hero-name">nguynkng</p>
           <h1>Full-stack<br />Developer<br /><span className="hero-last-line">with a <strong>Backend Focus</strong></span></h1>
           <p className="hero-description">I build web and mobile applications with TypeScript, React/Next.js, Node.js/NestJS, and PostgreSQL, with a focus on APIs, real-time features, and practical product delivery.</p>
           <div className="hero-actions"><Link to="/" state={{ scrollTo: "PROJECTS" }} className="button-primary">View My Work <ArrowRight size={17} /></Link><Link to="/" state={{ scrollTo: "CONTACT" }} className="button-outline">Contact Me</Link></div>
@@ -22,8 +22,8 @@ export default function Intro() {
         </div>
         <div className="hero-visual">
           <p className="font-hand hero-note">Build<br />Learn<br />Improve<br />Repeat<ArrowDown size={28} /></p>
-          <div className="portrait-frame"><img src="/avatar-1.jpg" alt="Nguyen Huu Nguyen Khang" fetchPriority="high" /></div>
-          <div className="code-caption"><code><span>const</span> developer = {"{"}<br />&nbsp; name: <em>"Nguyen Huu Nguyen Khang"</em>,<br />&nbsp; role: <em>"Full-stack Developer"</em>,<br />&nbsp; focus: <em>"Backend"</em>,<br />&nbsp; location: <em>"Ho Chi Minh City"</em>,<br />&nbsp; mindset: <em>"Keep learning"</em><br />{"}"}</code></div>
+          <div className="portrait-frame"><img src="/avatar-1.jpg" alt="nguynkng" fetchPriority="high" /></div>
+          <div className="code-caption"><code><span>const</span> developer = {"{"}<br />&nbsp; name: <em>"nguynkng"</em>,<br />&nbsp; role: <em>"Full-stack Developer"</em>,<br />&nbsp; focus: <em>"Backend"</em>,<br />&nbsp; location: <em>"Ho Chi Minh City"</em>,<br />&nbsp; mindset: <em>"Keep learning"</em><br />{"}"}</code></div>
           <div className="project-count"><strong>3</strong><span>Featured<br />Projects</span><ChartNoAxesColumnIncreasing size={30} /></div>
         </div>
       </div>

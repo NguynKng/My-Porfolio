@@ -22,7 +22,7 @@ export default function About() {
         </div>
         <div className="about-visual">
           <p className="font-hand about-note">Good developers<br />build good habits.</p>
-          <img src="/avatar-1.jpg" alt="Nguyen Huu Nguyen Khang" loading="lazy" />
+          <img src="/avatar-1.jpg" alt="nguynkng" loading="lazy" />
           <div className="about-caption"><span><Zap size={26} /></span><p>Clean code<br />Better products<br />Happier users</p></div>
         </div>
         <div className="trait-list">

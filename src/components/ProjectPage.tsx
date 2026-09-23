@@ -41,7 +41,7 @@ function ProjectContent({ project }: { project: Project }) {
   const nextProject = projects[(projectIndex + 1) % projects.length];
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = `${project.projectName} | Nguyen Khang`;
+    document.title = `${project.projectName} | nguynkng`;
     return () => { document.title = previousTitle; };
   }, [project]);
   return (

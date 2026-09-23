@@ -34,7 +34,7 @@ export default function Header({ activeSection }: { activeSection: string }) {
   return (
     <header className="site-header">
       <div className="section-shell header-inner">
-        <Link className="wordmark" to="/" state={{ scrollTo: "HOME" }} onClick={() => setOpen(false)}>Khang<span>.</span></Link>
+        <Link className="wordmark" to="/" state={{ scrollTo: "HOME" }} onClick={() => setOpen(false)}>nguynkng</Link>
         <nav className="desktop-nav" aria-label="Main navigation">{tabs.map((tab) => <Link key={tab} to="/" state={{ scrollTo: tab.toUpperCase() }} aria-current={activeSection === tab.toUpperCase() ? "location" : undefined}>{tab}</Link>)}</nav>
         <div className="header-actions">
           <a className="download-cv" href="/cv/NguyenHuuNguyenKhang_CV.pdf" download><ArrowDownToLine size={15} /><span>Download CV</span></a>
