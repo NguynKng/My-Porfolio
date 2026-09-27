@@ -42,7 +42,7 @@ export default function Works() {
                 <div className="project-content">
                   <div className="project-identity"><span className={`project-icon icon-${index}`}><Icon size={24} /></span><div><h3>{project.projectName}</h3><p>{project.type}</p></div></div>
                   <p className="project-description">{project.description}</p>
-                  <div className="project-meta"><span>{project.role}</span><span>{project.period}{project.team ? ` · Team of ${project.team}` : ""}</span></div>
+                  <div className="project-meta"><span>{project.role}</span><span>{project.period}{project.category ? ` · ${project.category}` : ""}{project.team ? ` · Team of ${project.team}` : ""}</span></div>
                   <div className="tech-tags">{project.technologies.slice(0, 3).map((tech) => <span key={tech}>{tech}</span>)}<span>+{project.technologies.length - 3}</span></div>
                   <span className="project-detail-link">Explore project <ArrowRight size={15} /></span>
                 </div>

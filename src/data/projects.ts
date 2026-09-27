@@ -5,16 +5,19 @@ export type Project = {
   role: string;
   period: string;
   team?: number;
+  category?: string;
   description: string;
   previewImage: string;
   technologies: string[];
   contributions: string[];
-  detailMedia: { type: "image" | "video"; src: string }[];
+  detailMedia: { type: "image" | "video"; src: string; label?: string; width?: number; height?: number }[];
   links: { label: string; href: string }[];
+  demoAccount?: { email: string; password: string };
 };
 
 const bingbongAssetBase = "/projects/bingbong";
 const pixeditAssetBase = "/projects/pixedit";
+const servioAssetBase = "/projects/servio";
 
 export const projects: Project[] = [
   {
@@ -23,7 +26,7 @@ export const projects: Project[] = [
     type: "Multi-platform F&B Management & POS System",
     role: "Full-stack Developer",
     period: "Mar 2026 - Present",
-    team: 2,
+    category: "Client Project",
     description: "A complete restaurant management system across web and mobile, with POS, QR ordering, kitchen operations, invoicing, employee management, and reporting.",
     previewImage: "/logo/servio-og-image.png",
     technologies: ["NestJS", "Next.js", "React Native", "TypeScript", "PostgreSQL", "Prisma", "RabbitMQ", "SSE", "DigitalOcean Spaces", "Docker", "Cloudflare Pages", "Expo / EAS"],
@@ -35,8 +38,16 @@ export const projects: Project[] = [
       "Integrated DigitalOcean Spaces for product images and LAN/Bluetooth thermal printing for receipts and table QR codes.",
       "Handled backend deployment, frontend publishing on Cloudflare Pages, and Android/iOS production builds with Expo EAS.",
     ],
-    detailMedia: [],
-    links: [],
+    detailMedia: [
+      { type: "image", src: `${servioAssetBase}/screenshot-webapp-owner.jpg`, label: "Owner dashboard", width: 1920, height: 911 },
+      { type: "image", src: `${servioAssetBase}/screenshot-mobile.jpg`, label: "Mobile app", width: 946, height: 2047 },
+      { type: "image", src: `${servioAssetBase}/screenshot-qr-webapp.jpg`, label: "QR ordering", width: 378, height: 819 },
+    ],
+    links: [
+      { label: "Visit website", href: "https://owner.servio.vn/" },
+      { label: "App Store (iOS)", href: "https://apps.apple.com/us/app/servio-vn-qu%E1%BA%A3n-l%C3%BD-qu%C3%A1n/id6779979414" },
+      { label: "Google Play (Android)", href: "https://play.google.com/store/apps/details?id=com.ketnoisaigon.serviovn&hl=en" },
+    ],
   },
   {
     slug: "bingbong",
@@ -60,10 +71,12 @@ export const projects: Project[] = [
       { type: "video", src: `${bingbongAssetBase}/demo.mp4` },
     ],
     links: [
+      { label: "Visit website", href: "http://178.128.85.73:3000/" },
       { label: "Backend", href: "https://github.com/NguynKng/BingBongApp-backend" },
       { label: "Frontend", href: "https://github.com/NguynKng/BingBongApp-frontend" },
       { label: "Mobile", href: "https://github.com/dattr09/BingBongApp" },
     ],
+    demoAccount: { email: "khang@gmail.com", password: "khang123" },
   },
   {
     slug: "pixedit",
@@ -85,6 +98,10 @@ export const projects: Project[] = [
       type: "image" as const,
       src: `${pixeditAssetBase}/screenshot-${i + 1}.jpg`,
     })),
-    links: [{ label: "Visit website", href: "https://pixedit.app" }],
+    links: [
+      { label: "Visit website", href: "https://pixedit.app" },
+      { label: "App Store (iOS)", href: "https://apps.apple.com/vn/app/pixedit-ai-photos-editor/id1662352918" },
+      { label: "Google Play (Android)", href: "https://play.google.com/store/apps/details?id=io.minailabs.fluxedit&hl=en" },
+    ],
   },
 ];

@@ -4,15 +4,18 @@ import { Toaster } from "react-hot-toast";
 import MainLayout from './components/MainLayout';
 import ProjectPage from './components/ProjectPage';
 import RouteScroll from './components/RouteScroll';
+import SiteLayout from './components/SiteLayout';
 
 function App() {
   return (
     <>
       <RouteScroll />
       <Routes>
-        <Route path="/" element={<MainLayout />} />
-        <Route path="/projects/:slug" element={<ProjectPage />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route element={<SiteLayout />}>
+          <Route path="/" element={<MainLayout />} />
+          <Route path="/projects/:slug" element={<ProjectPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
       </Routes>
       <Toaster
         position="top-right"
