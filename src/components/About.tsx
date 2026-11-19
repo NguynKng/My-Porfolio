@@ -20,15 +20,15 @@ export default function About() {
         transition={{ duration: reducedMotion ? 0 : .55, ease: [.22, 1, .36, 1] }}>
         <div className="about-layout">
           <figure className="about-portrait">
-            <img src="/cv/anh3x4.jpg" alt="Portrait of NguynKng" width={709} height={945} loading="lazy" />
-            <figcaption><strong>NguynKng</strong><span>Full-stack Developer</span></figcaption>
+            <img src="/cv/anh3x4.jpg" alt="Portrait of Nguyen Huu Nguyen Khang" width={709} height={945} loading="lazy" />
+            <figcaption><strong>Nguyen Huu Nguyen Khang</strong><span>Full-stack Developer</span></figcaption>
           </figure>
           <div className="about-copy">
             <p className="about-label">About me</p>
             <h2 id="about-title">More than just code</h2>
             <p className="about-lead">I'm a Full-stack Developer with a backend focus, based in Ho Chi Minh City.</p>
-            <p>I build practical web and mobile applications, from user interfaces and REST APIs to databases, real-time features, and deployment.</p>
-            <p>My work spans React, Next.js, React Native, Node.js, NestJS, PostgreSQL, MongoDB, Prisma, and TypeORM, with hands-on experience in Docker, Nginx, Linux VPS, Cloudflare, object storage, and mobile builds.</p>
+            <p>I graduated from HUTECH with a Bachelor of Engineering in Information Technology, earning an Excellent graduation classification.</p>
+            <p>Through my internship at VNA Group and freelance work on Servio, I've built REST APIs, authentication, databases, and real-time features, and deployed applications to production. Servio is live on the web, Google Play, and the App Store.</p>
             <p>I'm looking for Fresher or Junior opportunities to contribute to real products and strengthen my software engineering fundamentals.</p>
             <Link to="/" state={{ scrollTo: "EXPERIENCE" }} className="text-link about-experience">Explore my experience <ArrowRight size={17} /></Link>
           </div>

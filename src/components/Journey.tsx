@@ -10,15 +10,15 @@ const featuredSkills = [
   ["Node.js", "nodejs"], ["RabbitMQ", "rabbitmq"], ["Prisma", "prisma"],
 ];
 const skillGroups = [
-  { category: "Languages", items: ["JavaScript", "TypeScript", "Python", "HTML5 / CSS3"] },
+  { category: "Languages", items: ["TypeScript", "JavaScript", "Python", "SQL", "HTML5 / CSS3"] },
   { category: "Frontend", items: ["React", "Next.js", "Material UI (MUI)", "Tailwind CSS"] },
   { category: "Mobile", items: ["React Native", "Expo", "Expo Application Services (EAS)"] },
-  { category: "Backend", items: ["Node.js", "NestJS", "Express.js", "Flask"] },
+  { category: "Backend", items: ["Node.js", "NestJS", "Express.js", "Flask", "RESTful APIs", "JWT authentication", "RBAC"] },
   { category: "Databases & ORM", items: ["PostgreSQL", "MongoDB", "MySQL", "Microsoft SQL Server", "Prisma", "TypeORM"] },
-  { category: "Real-time & APIs", items: ["RESTful APIs", "SSE", "Socket.IO", "WebSocket", "WebRTC", "JWT", "RabbitMQ"] },
+  { category: "Real-time & Messaging", items: ["SSE", "Socket.IO", "WebSocket", "WebRTC", "RabbitMQ"] },
   { category: "Cloud & Storage", items: ["AWS S3", "DigitalOcean Spaces", "Cloudflare R2", "Cloudflare Pages"] },
   { category: "DevOps & Infrastructure", items: ["Docker", "Nginx", "Linux VPS", "Cloudflare DNS", "SSL/TLS"] },
-  { category: "Development Tools", items: ["Git / GitHub", "Postman", "DBeaver"] },
+  { category: "Development Tools", items: ["Git / GitHub", "Postman", "DBeaver", "SourceTree"] },
 ];
 
 export default function Journey() {
@@ -31,11 +31,16 @@ export default function Journey() {
           <h2 className="subsection-title">My Journey</h2>
           <div className="timeline">
             <article><div className="timeline-icon"><BriefcaseBusiness size={24} /></div><div>
+              <p className="meta">Mar 2026 - Present</p><h3>Freelance Full-stack Developer</h3><p className="organization">Servio — F&B Management & POS System</p>
+              <ul><li>Built a web and mobile F&B management and POS system with NestJS, Next.js, and React Native.</li><li>Implemented multi-branch ordering, RBAC, real-time kitchen updates, and offline mobile synchronization.</li><li>Deployed the backend and web apps, and released Android/iOS production builds with Expo EAS.</li></ul>
+              <Link to="/projects/servio" className="text-link timeline-project-link">View Servio case study <ArrowRight size={16} /></Link>
+            </div></article>
+            <article><div className="timeline-icon"><BriefcaseBusiness size={24} /></div><div>
               <p className="meta">Dec 2025 - Feb 2026</p><h3>Backend Developer Intern</h3><p className="organization">VNA Group</p>
-              <ul><li>Contributed to an Occupational Safety and Health (OSH) Reporting System using NestJS, PostgreSQL, Next.js, and MUI.</li><li>Designed REST APIs for authentication, enterprise and account management, and OSH reporting workflows.</li><li>Implemented RBAC for Admin, Enterprise, and Department Authority roles.</li></ul>
+              <ul><li>Helped rebuild the Occupational Safety and Health (OSH) reporting system for Ho Chi Minh City in a two-person team using NestJS and PostgreSQL.</li><li>Developed REST APIs for authentication, enterprise and account management, and report submission and review.</li><li>Implemented RBAC for Admin, Enterprise, and Department Authority roles to restrict data access and actions.</li></ul>
             </div></article>
             <article><div className="timeline-icon"><GraduationCap size={25} /></div><div>
-              <p className="meta">Oct 2022 - Oct 2026</p><h3>B.Eng. in Information Technology</h3><p className="organization">Ho Chi Minh City University of Technology (HUTECH)</p><p className="credential">GPA: <strong>3.6/4.0</strong></p>
+              <p className="meta">Oct 2022 - Nov 2026</p><h3>B.Eng. in Information Technology</h3><p className="organization">Ho Chi Minh City University of Technology (HUTECH)</p><p className="credential">GPA: <strong>3.6/4.0</strong></p><p className="credential">Graduation Classification: <strong>Excellent</strong></p>
             </div></article>
             <article><div className="timeline-icon"><Award size={25} /></div><div><p className="meta">English certification</p><h3>TOEIC Listening & Reading</h3><p className="credential"><strong>820/990</strong></p></div></article>
           </div>

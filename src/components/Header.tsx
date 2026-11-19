@@ -85,7 +85,7 @@ export default function Header() {
         <Link className="wordmark" to="/" state={{ scrollTo: "HOME" }} onClick={closeMenu}>NguynKng</Link>
         <nav className="desktop-nav" aria-label="Main navigation">{navigationLinks}</nav>
         <div className="header-actions">
-          <a className="download-cv" href="/cv/NguyenHuuNguyenKhang_CV.pdf" download aria-label="Download CV" title="Download CV"><ArrowDownToLine size={15} /><span>Download CV</span></a>
+          <a className="download-cv" href="/cv/NguyenHuuNguyenKhang_CV_FullstackDeveloper.pdf" download aria-label="Download CV" title="Download CV"><ArrowDownToLine size={15} /><span>Download CV</span></a>
           <button className="theme-toggle" data-theme={theme} onClick={() => setTheme(dark ? "light" : "dark")} aria-label={dark ? "Switch to light theme" : "Switch to dark theme"} aria-pressed={dark} title={dark ? "Switch to light theme" : "Switch to dark theme"}>
             <span className="theme-toggle-thumb" aria-hidden="true" />
             <span className="theme-toggle-icon theme-toggle-sun" aria-hidden="true"><Sun size={15} /></span>

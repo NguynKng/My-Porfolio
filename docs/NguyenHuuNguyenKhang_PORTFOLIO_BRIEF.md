@@ -3,6 +3,8 @@
 > **Purpose:** Source-of-truth content brief for generating a personal
 > developer portfolio.
 >
+> **Content reference:** `public/cv/NguyenHuuNguyenKhang_CV_FullstackDeveloper.pdf`
+>
 > **Target position:** Fresher / Junior Full-stack Developer\
 > **Positioning:** Full-stack Developer with a backend focus\
 > **Location:** Ho Chi Minh City, Vietnam\
@@ -20,7 +22,9 @@
 **Email:** nguynkhang2109@gmail.com\
 **Phone:** (+84) 934690473\
 **Location:** Ho Chi Minh City, Vietnam\
-**GitHub:** https://github.com/NguynKng
+**GitHub:** https://github.com/NguynKng\
+**LinkedIn:** https://www.linkedin.com/in/nguynkhang/\
+**CV download:** /cv/NguyenHuuNguyenKhang_CV_FullstackDeveloper.pdf
 
 ### Hero headline
 
@@ -40,27 +44,25 @@ Node.js/NestJS, and PostgreSQL.
 -   Contact Me
 -   Download CV
 
-> Add LinkedIn only when a valid LinkedIn profile URL is provided. Do
-> not invent one.
+Use the full name in the hero and About section. Keep `NguynKng` as the
+site wordmark and developer handle.
 
 ------------------------------------------------------------------------
 
 ## 2. About Me
 
-I am a Full-stack Developer with a backend focus and hands-on experience
-building web and mobile applications. I enjoy working across the
-development lifecycle, from implementing user interfaces and REST APIs
-to database integration, real-time features, and application deployment.
+I'm a Full-stack Developer with a backend focus, based in Ho Chi Minh City.
 
-I have worked with React, Next.js, React Native, Node.js, NestJS,
-PostgreSQL, MongoDB, Prisma, and TypeORM. I also have practical
-experience with Docker, Nginx, Linux VPS, Cloudflare, object storage,
-and mobile application builds.
+I graduated from HUTECH with a Bachelor of Engineering in Information
+Technology, earning an Excellent graduation classification.
 
-I am currently looking for Fresher or Junior Full-stack Developer
-opportunities where I can strengthen my software engineering
-fundamentals, contribute to real products, and continue growing in both
-backend and frontend development.
+Through my internship at VNA Group and freelance work on Servio, I've built
+REST APIs, authentication, databases, and real-time features, and deployed
+applications to production. Servio is live on the web, Google Play, and the
+App Store.
+
+I'm looking for Fresher or Junior opportunities to contribute to real
+products and strengthen my software engineering fundamentals.
 
 ------------------------------------------------------------------------
 
@@ -71,6 +73,7 @@ backend and frontend development.
 -   JavaScript
 -   TypeScript
 -   Python
+-   SQL
 -   HTML5 / CSS3
 
 ### Frontend
@@ -92,6 +95,9 @@ backend and frontend development.
 -   NestJS
 -   Express.js
 -   Flask
+-   RESTful APIs
+-   JWT authentication
+-   Role-based access control (RBAC)
 
 ### Databases & ORM
 
@@ -102,14 +108,12 @@ backend and frontend development.
 -   Prisma
 -   TypeORM
 
-### Real-time & APIs
+### Real-time & Messaging
 
--   RESTful APIs
 -   Server-Sent Events (SSE)
 -   Socket.IO
 -   WebSocket
 -   WebRTC
--   JWT
 -   RabbitMQ
 
 ### Cloud & Storage
@@ -132,25 +136,41 @@ backend and frontend development.
 -   Git / GitHub
 -   Postman
 -   DBeaver
+-   SourceTree
 
 ------------------------------------------------------------------------
 
 ## 4. Work Experience
 
+### Freelance Full-stack Developer --- Servio
+
+**Period:** Mar 2026 --- Present
+
+-   Built a web and mobile F&B management and POS system with NestJS,
+    Next.js, and React Native.
+-   Implemented multi-branch ordering, RBAC, real-time kitchen updates,
+    and offline mobile synchronization.
+-   Deployed the backend and web apps, and released Android/iOS
+    production builds with Expo EAS.
+
+**Case study:** /projects/servio
+
+Servio appears here as freelance work experience and in Featured Projects
+as a detailed case study. List this current role before the VNA internship.
+
 ### Backend Developer Intern --- VNA Group
 
 **Period:** Dec 2025 --- Feb 2026
 
--   Contributed to the redevelopment of an Occupational Safety and
-    Health (OSH) Reporting System using NestJS, PostgreSQL, Next.js, and
-    MUI.
--   Designed and implemented REST APIs for authentication, enterprise
-    and account management, and OSH reporting workflows.
+-   Helped rebuild the Occupational Safety and Health (OSH) reporting
+    system for Ho Chi Minh City in a two-person team using NestJS and
+    PostgreSQL.
+-   Developed REST APIs for authentication, enterprise and account
+    management, and report submission and review.
 -   Implemented role-based access control (RBAC) for Admin, Enterprise,
-    and Department Authority roles.
+    and Department Authority roles to restrict data access and actions.
 
-**Relevant technologies:** NestJS, PostgreSQL, Next.js, MUI, REST APIs,
-RBAC
+**Relevant technologies:** NestJS, PostgreSQL, REST APIs, RBAC
 
 ------------------------------------------------------------------------
 
@@ -158,7 +178,7 @@ RBAC
 
 ### 5.1 Servio --- Multi-platform F&B Management & POS System
 
-**Role:** Full-stack Developer\
+**Role:** Freelance Full-stack Developer\
 **Team size:** 2\
 **Period:** Mar 2026 --- Present\
 **Recommended portfolio priority:** Featured / Primary project
@@ -168,6 +188,7 @@ RBAC
 A multi-platform F&B management and point-of-sale system covering daily
 restaurant operations across web and mobile, including POS, QR ordering,
 kitchen workflows, invoicing, employee management, and reporting.
+Live on web, Google Play, and the App Store.
 
 #### Key contributions
 
@@ -176,14 +197,16 @@ kitchen workflows, invoicing, employee management, and reporting.
 -   Built backend features for multi-branch management, role-based
     access control, branch-specific pricing, order processing, and
     authentication using NestJS, Prisma, and PostgreSQL.
--   Implemented real-time kitchen and order updates using RabbitMQ and
-    Server-Sent Events.
+-   Implemented real-time kitchen and order updates using Server-Sent
+    Events.
 -   Supported offline mobile ordering with synchronization designed to
     prevent duplicate orders.
 -   Integrated DigitalOcean Spaces for product image storage.
 -   Integrated LAN/Bluetooth thermal printing for receipts and table QR
     codes.
 -   Worked across backend, web, and mobile parts of the product.
+-   Deployed the backend, published web apps on Cloudflare Pages, and
+    released Android/iOS production builds with Expo EAS.
 
 #### Tech stack
 
@@ -196,6 +219,7 @@ kitchen workflows, invoicing, employee management, and reporting.
 -   RabbitMQ
 -   Server-Sent Events
 -   DigitalOcean Spaces
+-   AWS S3
 -   Docker
 -   Cloudflare Pages
 -   Expo / EAS
@@ -203,9 +227,9 @@ kitchen workflows, invoicing, employee management, and reporting.
 #### Portfolio card copy
 
 **Servio**\
-Multi-platform F&B management and POS system with web, mobile, QR
-ordering, real-time kitchen updates, offline ordering, and multi-branch
-management.
+A web and mobile F&B management and POS system, live on web, Google Play,
+and the App Store, with QR ordering, kitchen operations, invoicing, staff
+management, and reporting.
 
 #### Suggested visual content
 
@@ -220,27 +244,28 @@ Reports/dashboard
 
 ### 5.2 BingBong --- Social Network Web & Mobile App
 
-**Role:** Team Lead / Full-stack Developer\
+**Role:** Team Lead & Full-stack Developer\
 **Team size:** 3\
 **Period:** Mar 2025 --- Jan 2026\
 **Recommended portfolio priority:** Featured project
 
 #### Short description
 
-A web and mobile social networking platform featuring real-time
-messaging, video calling, content sharing, AI-assisted content
-moderation, and e-commerce functionality.
+A web and mobile social platform with real-time messaging, voice/video
+calls, e-commerce, AI-assisted moderation, and a Gemini-powered chatbot.
 
 #### Key contributions
 
--   Led the development of the web and mobile application in a team of
-    three.
--   Implemented real-time communication using Socket.IO and WebRTC.
--   Built 1-to-1 video calling with real-time translation.
--   Integrated AI-based toxic content detection using Gemini API and
-    computer vision/NLP services.
--   Worked across React/React Native clients and Node.js/Express.js
-    backend services.
+-   Led a three-member team building web and mobile applications,
+    primarily focusing on web and backend development.
+-   Developed REST APIs for authentication, social features, multi-shop
+    checkout, order management, and analytics using Express.js and MongoDB.
+-   Implemented real-time messaging and notifications with Socket.IO,
+    along with WebRTC voice/video calls, screen sharing, and translated
+    captions.
+-   Developed a Flask-based content moderation service using Perspective
+    API, Tesseract OCR, and pretrained YOLOv8.
+-   Integrated a Gemini-powered chatbot.
 
 #### Tech stack
 
@@ -253,6 +278,10 @@ moderation, and e-commerce functionality.
 -   WebRTC
 -   Python
 -   Flask
+-   Docker
+-   Perspective API
+-   Tesseract OCR
+-   YOLOv8
 -   Gemini API
 
 #### Links
@@ -266,9 +295,8 @@ Frontend repository - Mobile repository
 #### Portfolio card copy
 
 **BingBong**\
-Web and mobile social platform featuring real-time chat, 1-to-1 video
-calling, real-time translation, AI content moderation, and e-commerce
-features.
+A web and mobile social platform with real-time messaging, voice/video
+calls, e-commerce, AI-assisted moderation, and a Gemini-powered chatbot.
 
 #### Suggested visual content
 
@@ -336,8 +364,10 @@ internationalized SEO.
 ### Ho Chi Minh City University of Technology (HUTECH)
 
 **Degree:** Bachelor of Engineering in Information Technology\
-**Period:** Oct 2022 --- Oct 2026\
-**GPA:** 3.6 / 4.0
+**Period:** Oct 2022 --- Nov 2026\
+**Status:** Graduated\
+**GPA:** 3.6 / 4.0\
+**Graduation Classification:** Excellent
 
 ### TOEIC
 
@@ -365,6 +395,7 @@ multi-page portfolio with the following main sections:
     -   Prioritize TypeScript, React/Next.js, Node.js/NestJS,
         PostgreSQL, Prisma, Docker
 4.  **Experience**
+    -   Freelance Full-stack Developer on Servio, linked to its case study
     -   VNA Group internship
     -   Use a clean timeline or compact experience card
 5.  **Featured Projects**
@@ -376,13 +407,14 @@ multi-page portfolio with the following main sections:
 6.  **Education & Certification**
     -   HUTECH
     -   GPA 3.6/4.0
+    -   Graduated in Nov 2026 with an Excellent graduation classification
     -   TOEIC 820/990
 7.  **Contact**
     -   Email
     -   GitHub
     -   Phone
     -   Location
-    -   LinkedIn only if supplied later
+    -   LinkedIn
 
 ------------------------------------------------------------------------
 
@@ -455,19 +487,18 @@ PostgreSQL.
 
 ## 10. Suggested About Copy
 
-I'm a Full-stack Developer with a backend focus, currently based in Ho
-Chi Minh City. I enjoy building practical products across web, mobile,
-and backend systems, with particular interest in APIs, databases,
-real-time features, and product delivery.
+I'm a Full-stack Developer with a backend focus, based in Ho Chi Minh City.
 
-My recent work includes an F&B management and POS platform, a real-time
-social networking application, and an AI-powered photo editor. I have
-also gained backend development experience through my internship at VNA
-Group.
+I graduated from HUTECH with a Bachelor of Engineering in Information
+Technology, earning an Excellent graduation classification.
 
-I'm currently looking for Fresher or Junior Full-stack Developer
-opportunities where I can contribute to real products while continuing
-to strengthen my engineering fundamentals.
+Through my internship at VNA Group and freelance work on Servio, I've built
+REST APIs, authentication, databases, and real-time features, and deployed
+applications to production. Servio is live on the web, Google Play, and the
+App Store.
+
+I'm looking for Fresher or Junior opportunities to contribute to real
+products and strengthen my software engineering fundamentals.
 
 ------------------------------------------------------------------------
 
@@ -495,12 +526,16 @@ When generating the portfolio from this file:
 -   Do not invent awards.
 -   Do not claim seniority beyond Fresher/Junior.
 -   Do not present the candidate as a DevOps engineer.
--   Do not claim that AWS S3 was used in Servio; Servio uses
-    DigitalOcean Spaces for product image storage.
+-   Servio uses DigitalOcean Spaces for product image storage. The current
+    CV also lists AWS S3 in its tech stack; do not infer a specific AWS S3
+    responsibility beyond that listing.
 -   Do not claim that the candidate designed automated CI/CD unless
     separately confirmed.
 -   Keep VNA Group clearly under Work Experience.
--   Keep Servio, BingBong, and PixEdit under Projects.
+-   Include Servio under Work Experience as freelance work and under
+    Projects as a case study; keep BingBong and PixEdit under Projects.
+-   For BingBong, distinguish content moderation (Perspective API,
+    Tesseract OCR, pretrained YOLOv8) from the Gemini-powered chatbot.
 -   Keep TOEIC score exactly at 820/990.
 -   Keep GPA exactly at 3.6/4.0.
 -   If project screenshots or additional URLs are not supplied, create
