@@ -3,79 +3,86 @@
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/fonts/inter.ttf") format("truetype"); }
 @font-face { font-family: "Caveat"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/fonts/caveat.ttf") format("truetype"); }
 
+/*
+  Clean slate neutrals with blue as the primary brand colour.
+*/
 :root {
-  --ink: #10233d;
-  --ink-soft: #3c5877;
-  --ink-muted: #6a8098;
-  --canvas: #fbfdff;
-  --canvas-soft: #f1f7ff;
+  --ink: #0f172a;
+  --ink-soft: #334155;
+  --ink-muted: #64748b;
+  --canvas: #ffffff;
+  --canvas-soft: #f7f9fc;
   --surface: #ffffff;
   --surface-raised: #ffffff;
-  --surface-tinted: #e8f2ff;
-  --hairline: #d8e6f4;
-  --accent: #237ee8;
-  --accent-strong: #1264c9;
-  --accent-contrast: #f8fbff;
-  --accent-soft: #e7f1ff;
-  --accent-glow: rgb(35 126 232 / 18%);
-  --hero-bg: #071524;
-  --hero-bg-soft: #12385f;
-  --hero-panel: #11283e;
-  --hero-text: #f0f7ff;
-  --hero-text-soft: #c2d5e9;
-  --hero-text-muted: #9db6cf;
-  --project-bg: #0b2340;
-  --project-bg-soft: #123a63;
-  --on-dark: #edf6ff;
-  --on-dark-soft: #c4d9ef;
-  --header-control: rgb(255 255 255 / 10%);
-  --header-control-border: rgb(255 255 255 / 18%);
-  --theme-thumb: #f6fbff;
-  --shadow-card: 0 18px 45px rgb(25 79 124 / 12%);
-  --shadow-soft: 0 12px 30px rgb(25 79 124 / 10%);
+  --surface-tinted: #f1f5f9;
+  --hairline: #e2e8f0;
+  --hairline-strong: #cbd5e1;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --accent-contrast: #ffffff;
+  --accent-soft: #eef4ff;
+  --accent-line: #c9dafc;
+  --accent-glow: rgb(37 99 235 / 14%);
+  --mint: #16a34a;
+  --mint-soft: rgb(22 163 74 / 10%);
+  --amber: #b45309;
+  --brand-gradient: linear-gradient(var(--accent), var(--accent));
+  --btn-gradient: linear-gradient(var(--accent), var(--accent));
+  --glass: #ffffff;
+  --glass-border: #e2e8f0;
+  --header-bg: rgb(255 255 255 / 85%);
+  --theme-thumb: #ffffff;
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 4%);
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 4%);
+  --shadow-lift: 0 10px 28px rgb(15 40 90 / 8%);
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --ink: #e8f1fb;
-  --ink-soft: #b9c9dc;
-  --ink-muted: #8ea3ba;
-  --canvas: #0d1724;
-  --canvas-soft: #111f30;
-  --surface: #142338;
-  --surface-raised: #192b42;
-  --surface-tinted: #1c3450;
-  --hairline: #2b415c;
-  --accent: #6bb3ff;
-  --accent-strong: #93c9ff;
-  --accent-contrast: #081422;
-  --accent-soft: #203b58;
-  --accent-glow: rgb(107 179 255 / 20%);
-  --hero-bg: #0b1624;
-  --hero-bg-soft: #102a47;
-  --hero-panel: #142a40;
-  --hero-text: #f1f7ff;
-  --hero-text-soft: #c8d9ea;
-  --hero-text-muted: #97afc8;
-  --project-bg: #0e1d2f;
-  --project-bg-soft: #153354;
-  --on-dark: #f0f7ff;
-  --on-dark-soft: #c7daf0;
-  --header-control: rgb(255 255 255 / 12%);
-  --header-control-border: rgb(255 255 255 / 22%);
-  --theme-thumb: #91c9ff;
-  --shadow-card: 0 18px 45px rgb(0 0 0 / 28%);
-  --shadow-soft: 0 12px 30px rgb(0 0 0 / 22%);
+  --ink: #e8eef8;
+  --ink-soft: #c3cfe0;
+  --ink-muted: #8b9bb4;
+  --canvas: #0b1220;
+  --canvas-soft: #0e1628;
+  --surface: #111b2e;
+  --surface-raised: #111b2e;
+  --surface-tinted: #17233a;
+  --hairline: #1f2c45;
+  --hairline-strong: #2c3c5a;
+  --accent: #5b9dff;
+  --accent-strong: #8dbbff;
+  --accent-contrast: #06101f;
+  --accent-soft: rgb(91 157 255 / 12%);
+  --accent-line: rgb(91 157 255 / 32%);
+  --accent-glow: rgb(91 157 255 / 16%);
+  --mint: #4ade80;
+  --mint-soft: rgb(74 222 128 / 12%);
+  --amber: #fbbf24;
+  --brand-gradient: linear-gradient(var(--accent), var(--accent));
+  --btn-gradient: linear-gradient(var(--accent), var(--accent));
+  --glass: #111b2e;
+  --glass-border: #1f2c45;
+  --header-bg: rgb(11 18 32 / 85%);
+  --theme-thumb: #5b9dff;
+  --shadow-card: none;
+  --shadow-soft: none;
+  --shadow-lift: 0 10px 28px rgb(0 0 0 / 35%);
   color-scheme: dark;
 }
 * { box-sizing: border-box; letter-spacing: 0; }
-html { scroll-behavior: smooth; background: var(--canvas); scroll-padding-top: 96px; }
+html { scroll-behavior: smooth; background: var(--canvas); scroll-padding-top: 88px; }
 body { margin: 0; font-family: "Inter", system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--canvas); -webkit-font-smoothing: antialiased; transition: background-color 240ms ease, color 240ms ease; }
 h1, h2, h3, p { margin: 0; }
-a { text-decoration: none; }
-button { cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font: inherit; color: inherit; background: none; border: 0; padding: 0; }
 button:disabled { cursor: default; }
 a, button { -webkit-tap-highlight-color: transparent; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
 ::selection { color: var(--accent-contrast); background: var(--accent); }
 .font-hand { font-family: "Caveat", cursive; }
+.font-mono { font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; }
+.gradient-text { background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+.tech-icon { width: 16px; height: 16px; flex-shrink: 0; object-fit: contain; }
+:root[data-theme="dark"] .tech-icon[src$="/nextjs.svg"],
+:root[data-theme="dark"] .tech-icon[src$="/prisma.svg"],
+:root[data-theme="dark"] .tech-icon[src$="/socketio.svg"] { filter: invert(1) hue-rotate(180deg); }

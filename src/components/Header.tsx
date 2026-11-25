@@ -25,6 +25,13 @@ export default function Header() {
   const activeSection = location.pathname.startsWith("/projects/") ? "PROJECTS" : homeSection;
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const dark = theme === "dark";
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   useEffect(() => { setMenuLocation(null); }, [location.key]);
   useEffect(() => {
     if (location.pathname !== "/") return;
@@ -56,7 +63,7 @@ export default function Header() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#0b1624" : "#071524");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#0b1220" : "#ffffff");
     try { localStorage.setItem("portfolio-theme", theme); } catch { /* Storage may be disabled. */ }
   }, [dark, theme]);
   useEffect(() => {
@@ -80,7 +87,7 @@ export default function Header() {
     <Link key={tab} to="/" state={{ scrollTo: tab.toUpperCase() }} onClick={closeMenu} aria-current={activeSection === tab.toUpperCase() ? "location" : undefined}>{tab}</Link>
   ));
   return (
-    <header className="site-header">
+    <header className="site-header" data-scrolled={scrolled || open || location.pathname !== "/"}>
       <div className="section-shell header-inner">
         <Link className="wordmark" to="/" state={{ scrollTo: "HOME" }} onClick={closeMenu}>NguynKng</Link>
         <nav className="desktop-nav" aria-label="Main navigation">{navigationLinks}</nav>

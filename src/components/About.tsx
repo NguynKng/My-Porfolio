@@ -1,44 +1,74 @@
-import { ArrowRight, Brain, Lightbulb, Rocket, ShieldCheck } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Brain, Database, Lightbulb, Radio, Rocket, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Item, Stagger } from "./motion";
+import TechChip from "./TechChip";
+
+const focusAreas = [
+  {
+    icon: Database,
+    title: "APIs & data modeling",
+    body: "REST APIs with NestJS and Express, relational schemas in PostgreSQL/Prisma, authentication and permission-based RBAC.",
+    tags: ["NestJS", "PostgreSQL", "Prisma", "RBAC"],
+  },
+  {
+    icon: Radio,
+    title: "Real-time & offline-first",
+    body: "Live kitchen and cashier screens over SSE, Socket.IO chat, WebRTC calls, and idempotent sync so offline orders never duplicate.",
+    tags: ["SSE", "Socket.IO", "WebRTC"],
+  },
+  {
+    icon: Rocket,
+    title: "Shipping to production",
+    body: "Docker on a Linux VPS behind Nginx, Cloudflare Pages for web apps, and Android/iOS releases with Expo EAS.",
+    tags: ["Docker", "Nginx", "Cloudflare", "Expo EAS"],
+  },
+];
 
 const traits = [
-  { title: "Problem Solver", body: "I enjoy breaking down complex problems.", icon: Brain },
-  { title: "Continuous Learner", body: "Always exploring new technologies.", icon: Lightbulb },
-  { title: "Product Mindset", body: "Focused on useful, real-world products.", icon: ShieldCheck },
-  { title: "Open to Opportunities", body: "Looking for Fresher / Junior roles.", icon: Rocket },
+  { title: "Problem solver", body: "I enjoy breaking complex problems into small, testable pieces.", icon: Brain },
+  { title: "Continuous learner", body: "Always exploring new tools, including AI-assisted development.", icon: Lightbulb },
+  { title: "Product mindset", body: "I care about what real users need, not just what compiles.", icon: ShieldCheck },
 ];
 
 export default function About() {
-  const reducedMotion = useReducedMotion();
   return (
-    <section className="about-section section-padding" aria-labelledby="about-title">
-      <motion.div className="section-shell about-shell"
-        initial={reducedMotion ? false : { opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: .12 }}
-        transition={{ duration: reducedMotion ? 0 : .55, ease: [.22, 1, .36, 1] }}>
+    <section className="section about" aria-labelledby="about-title">
+      <div className="section-shell">
         <div className="about-layout">
-          <figure className="about-portrait">
-            <img src="/cv/anh3x4.jpg" alt="Portrait of Nguyen Huu Nguyen Khang" width={709} height={945} loading="lazy" />
-            <figcaption><strong>Nguyen Huu Nguyen Khang</strong><span>Full-stack Developer</span></figcaption>
-          </figure>
-          <div className="about-copy">
-            <p className="about-label">About me</p>
-            <h2 id="about-title">More than just code</h2>
-            <p className="about-lead">I'm a Full-stack Developer with a backend focus, based in Ho Chi Minh City.</p>
-            <p>I graduated from HUTECH with a Bachelor of Engineering in Information Technology, earning an Excellent graduation classification.</p>
-            <p>Through my internship at VNA Group and freelance work on Servio, I've built REST APIs, authentication, databases, and real-time features, and deployed applications to production. Servio is live on the web, Google Play, and the App Store.</p>
-            <p>I'm looking for Fresher or Junior opportunities to contribute to real products and strengthen my software engineering fundamentals.</p>
-            <Link to="/" state={{ scrollTo: "EXPERIENCE" }} className="text-link about-experience">Explore my experience <ArrowRight size={17} /></Link>
-          </div>
+          <Stagger className="about-copy">
+            <Item as="p" className="eyebrow">About me</Item>
+            <Item as="h2" className="section-title"><span id="about-title">Backend-minded,<br />product-driven.</span></Item>
+            <Item as="p" className="about-lead">I'm a Full-stack Developer based in Ho Chi Minh City, and I like owning a feature from the database to the app store.</Item>
+            <Item as="p">I graduated from HUTECH with a Bachelor of Engineering in Information Technology (GPA 3.6/4.0, Excellent). During my internship at VNA Group I rebuilt the city's Occupational Safety and Health reporting system and was named <strong>Outstanding Intern</strong>.</Item>
+            <Item as="p">Since then I've built and shipped Servio, an F&amp;B and POS platform now live on the web, Google Play, and the App Store. I'm looking for a Fresher or Junior role where I can keep shipping real products and grow my engineering fundamentals.</Item>
+            <Item><Link to="/" state={{ scrollTo: "EXPERIENCE" }} className="text-link">Explore my experience <ArrowRight size={17} /></Link></Item>
+          </Stagger>
+
+          <Stagger className="focus-list" gap={0.12} delay={0.1}>
+            {focusAreas.map(({ icon: Icon, title, body, tags }) => (
+              <Item as="article" className="focus-card" key={title}>
+                <div className="focus-card-inner">
+                  <span className="focus-icon"><Icon size={22} /></span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
+                    <div className="chip-row">{tags.map((tag) => <TechChip key={tag} name={tag} />)}</div>
+                  </div>
+                </div>
+              </Item>
+            ))}
+          </Stagger>
         </div>
-        <ul className="about-principles" aria-label="How I work">
+
+        <Stagger className="traits" as="ul" gap={0.08}>
           {traits.map(({ title, body, icon: Icon }) => (
-            <li key={title}><div className="about-principle-heading"><Icon size={20} aria-hidden="true" /><h3>{title}</h3></div><p>{body}</p></li>
+            <Item as="li" key={title}>
+              <Icon size={20} aria-hidden="true" />
+              <div><h3>{title}</h3><p>{body}</p></div>
+            </Item>
           ))}
-        </ul>
-      </motion.div>
+        </Stagger>
+      </div>
     </section>
   );
 }
